@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      try {
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-tertiary-fixed": "#1b1c19",
+                "inverse-surface": "#303030",
+                "on-tertiary-container": "#3c3d39",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "outline-variant": "#dbc1ba",
+                "surface-variant": "#e4e2e2",
+                "on-tertiary-fixed-variant": "#474744",
+                "surface-container-lowest": "#ffffff",
+                tertiary: "#5e5e5b",
+                "on-secondary-container": "#636262",
+                error: "#ba1a1a",
+                "surface-tint": "#984630",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-highest": "#e4e2e2",
+                "surface-container-high": "#eae8e7",
+                "tertiary-fixed": "#e4e2dd",
+                "surface-bright": "#fbf9f8",
+                primary: "#984630",
+                "on-primary-fixed": "#3c0800",
+                "surface-dim": "#dbd9d9",
+                "surface-container-low": "#f5f3f3",
+                "on-background": "#1b1c1c",
+                secondary: "#5f5e5e",
+                "primary-container": "#f28c71",
+                "tertiary-container": "#a8a7a3",
+                "tertiary-fixed-dim": "#c8c6c2",
+                "on-surface-variant": "#55433e",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-primary-fixed-variant": "#7a2f1b",
+                "surface-container": "#efeded",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                background: "#fbf9f8",
+                "inverse-on-surface": "#f2f0f0",
+                outline: "#88726d",
+                "on-surface": "#1b1c1c",
+                "inverse-primary": "#ffb4a1",
+                "secondary-fixed": "#e5e2e1",
+                "on-error-container": "#93000a",
+                surface: "#fbf9f8",
+                "primary-fixed": "#ffdbd1",
+                "on-primary-container": "#6d2512",
+                "secondary-container": "#e2dfde",
+                "primary-fixed-dim": "#ffb4a1",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#474746",
+              },
+              borderRadius: {
+                DEFAULT: "0.25rem",
+                lg: "0.5rem",
+                xl: "0.75rem",
+                full: "9999px",
+              },
+              spacing: {
+                sm: "12px",
+                "margin-mobile": "16px",
+                xl: "80px",
+                base: "8px",
+                "margin-desktop": "64px",
+                md: "24px",
+                xs: "4px",
+                lg: "48px",
+                gutter: "24px",
+              },
+              fontFamily: {
+                "label-md": ["Inter"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-sm": ["Inter"],
+              },
+              fontSize: {
+                "label-md": [
+                  "14px",
+                  {
+                    lineHeight: "16px",
+                    letterSpacing: "0.05em",
+                    fontWeight: "600",
+                  },
+                ],
+                "headline-xl": [
+                  "48px",
+                  {
+                    lineHeight: "56px",
+                    letterSpacing: "-0.02em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                "headline-lg-mobile": [
+                  "28px",
+                  { lineHeight: "36px", fontWeight: "700" },
+                ],
+                "headline-lg": [
+                  "32px",
+                  {
+                    lineHeight: "40px",
+                    letterSpacing: "-0.01em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                "headline-md": [
+                  "24px",
+                  { lineHeight: "32px", fontWeight: "600" },
+                ],
+                "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              },
+            },
+          },
+        };
+      } catch (_e) {}
+    </script>
+    <meta charset="utf-8" />
+  </head>
+  <body class="bg-background text-on-surface font-body-md">
+    <!-- Navigation -->
+    <nav
+      class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 border-b border-outline-variant/30 transition-all duration-300"
+    >
+      <div
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            alt="Ashville School Logo"
+            class="h-10 w-auto"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC-iX_yK2jPPxT5nvwM7V5W26IvBUffKdIDnkKSv-m8vgMSin29WaMFr0naqgCZTXqBItBJLo3ugQtuOiNWyz59aYqLCA4xo44E9JmCxRd1vSBTGoWGfDPZ-Ny3xS4NOaXNEkRAMdDxn5cYULRMG-MsOjaHfrXTzHMDIWUVL88wbPndRqQafv1S7lFGL9cJY_5y0COJaHywJ_QSsIQqaHU1cl8MgVvgX7IohZoDuqRhsdmEe24edAAiK6cZtn8SA1Ud5go4OI4MIeN"
+          />
+          <span
+            class="font-headline font-bold text-primary text-xl hidden sm:block"
+            >Ashville School</span
+          >
+        </div>
+        <div class="hidden lg:flex items-center gap-8">
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/about.html"
+            >About</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/programs.html"
+            >Our Programs</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/gallery.html"
+            >Gallery</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/admissions.html"
+            >Admissions</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/contact.html"
+            >Contact</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:shadow-lg active:scale-95 transition-all"
+          >
+            Enroll Now
+          </button>
+          <button
+            class="lg:hidden p-2 text-primary"
+            onclick="toggleMobileMenu()"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+      <!-- Simple Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-4 space-y-4"
+      >
+        <a class="block font-semibold" href="#" onclick="toggleMobileMenu()"
+          >Home</a
+        >
+        <a
+          class="block font-semibold"
+          href="#about"
+          onclick="toggleMobileMenu()"
+          >About</a
+        >
+        <a
+          class="block font-semibold"
+          href="#programs"
+          onclick="toggleMobileMenu()"
+          >Our Programs</a
+        >
+        <a
+          class="block font-semibold"
+          href="#gallery"
+          onclick="toggleMobileMenu()"
+          >Gallery</a
+        >
+        <a
+          class="block font-semibold"
+          href="#admissions"
+          onclick="toggleMobileMenu()"
+          >Admissions</a
+        >
+        <a
+          class="block font-semibold"
+          href="#contact"
+          onclick="toggleMobileMenu()"
+          >Contact</a
+        >
+      </div>
+    </nav>
+    <main>
+      <!-- Hero Section -->
+      <section class="relative min-h-[716px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <div
+            class="w-full h-full bg-cover bg-center transition-transform duration-1000 scale-105"
+            data-alt="A warm, sun-drenched Montessori classroom in Adenta, Ghana. High-quality photography captures children of diverse backgrounds engaged in self-directed learning with wooden sensory materials. The lighting is soft and golden, emphasizing a nurturing atmosphere. The interior features light wood furniture and natural textures, reflecting a professional yet welcoming educational environment."
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB2v7X4CKr6o42sF1OG_kUI-zU8DYhnRp2YXr4pVbDyI80S0776ID-3NXDD6S6t7fbOU8cDHNus_uPaWYOKG8jM_H-SWxFwoH4MOaJjuOt3b11nulm2urLx3rGjku9A_F0C0kOFL4ftIx-H7YKs5-3Yhf7G-ff8ADP5ZBcavN2MO8ZjO04_g6MAMiJzD1ylur6a3dNx3dcGiYUVoFLXzSbOArjDTFiwgRAmNQRhVB3xiWTaESkJ8Q8vXmASpHj5IpzDEoobO8_mNGs5&quot;);
+            "
+          ></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"
+          ></div>
+        </div>
+        <div
+          class="relative z-10 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop w-full"
+        >
+          <div class="max-w-2xl space-y-6">
+            <span
+              class="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1 rounded-full font-label-md text-label-md"
+              >Nurturing With Love</span
+            >
+            <h1 class="font-headline-xl text-headline-xl text-on-surface">
+              Where Every Child's Journey is
+              <span class="text-primary italic">Celebrated</span>.
+            </h1>
+            <p class="font-body-lg text-body-lg text-secondary max-w-lg">
+              Founded on the principles of the Montessori method, Ashville
+              School provides a child-centered sanctuary in the heart of Adenta
+              where curiosity leads to excellence.
+            </p>
+            <div class="flex gap-4">
+              <button
+                class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md shadow-lg hover:shadow-xl transition-all"
+              >
+                Our Philosophy
+              </button>
+              <button
+                class="bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-label-md text-label-md hover:bg-surface-container-highest transition-all"
+              >
+                View Gallery
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Our Story / Bento Grid -->
+      <section
+        class="py-xl max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop"
+      >
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-lg gap-gutter"
+        >
+          <div class="max-w-xl">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">
+              Our Story
+            </h2>
+            <p class="font-body-md text-body-md text-secondary">
+              What started as a small dream in Adenta has grown into a
+              cornerstone of Montessori education in Ghana. Ashville School was
+              established with a singular vision: to create a "second home"
+              where learning is as natural as breathing.
+            </p>
+          </div>
+          <div class="flex gap-2">
+            <div class="w-12 h-1 bg-primary rounded-full"></div>
+            <div class="w-4 h-1 bg-outline-variant rounded-full"></div>
+            <div class="w-4 h-1 bg-outline-variant rounded-full"></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+          <div class="md:col-span-8 relative rounded-3xl overflow-hidden group">
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              data-alt="A wide-angle aerial view of the Ashville School campus in Adenta, showcasing the modern, organized architecture and green spaces. The sports complex and academic wings are visible under a bright blue Ghanaian sky. The image reflects the professional corporate identity of the school while maintaining a sense of community and warmth."
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDYsMFyAFs2l20QU54g95LghBCYrzLl07yAREM0WLCwZnp8_tXCNQTuJDZOmE-rzkVQCvnu65CztH9BYtgNUlxeKP2G8_I6dy5q3hcidaLM2ij2cID8L57lnHK2YpxUcVH4Ba-SK1YDHQWYB77qJepF6VXgCdwZ-S7yRAsDa8h1bTjhFTj85ZsLlwwiLFE8_JfApBNFtBljjMr4OdhSpF-bjpAipUxlJWc39pcUQxp6cNh-Y-GlgjtY6N2JbBzTi27CIY_FkRsGEYhr&quot;);
+              "
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-on-surface/80 to-transparent"
+            >
+              <h3 class="font-headline-md text-headline-md text-on-primary">
+                Modern Facilities
+              </h3>
+              <p class="text-on-primary/80 font-body-sm">
+                Designed to inspire movement and exploration.
+              </p>
+            </div>
+          </div>
+          <div class="md:col-span-4 grid grid-rows-2 gap-6">
+            <div
+              class="bg-primary-container/20 rounded-3xl p-8 flex flex-col justify-center border border-primary-container/30"
+            >
+              <span class="material-symbols-outlined text-primary text-4xl mb-4"
+                >history_edu</span
+              >
+              <h4 class="font-headline-md text-headline-md text-primary mb-2">
+                Since 2014
+              </h4>
+              <p class="font-body-sm text-on-surface-variant">
+                A decade of fostering independent thinkers and compassionate
+                leaders.
+              </p>
+            </div>
+            <div
+              class="bg-surface-container-high rounded-3xl p-8 flex flex-col justify-center border border-outline-variant/30"
+            >
+              <span
+                class="material-symbols-outlined text-secondary text-4xl mb-4"
+                >location_on</span
+              >
+              <h4
+                class="font-headline-md text-headline-md text-on-surface mb-2"
+              >
+                Adenta Haven
+              </h4>
+              <p class="font-body-sm text-on-surface-variant">
+                Located in a peaceful residential enclave, far from the city's
+                noise.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Mission & Vision -->
+      <section class="bg-surface-container-low py-xl">
+        <div
+          class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop"
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+            <div class="space-y-12">
+              <div>
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="p-3 bg-primary rounded-xl text-on-primary">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                  </div>
+                  <h2 class="font-headline-lg text-headline-lg">Our Mission</h2>
+                </div>
+                <p
+                  class="font-body-lg text-body-lg text-secondary leading-relaxed"
+                >
+                  To provide an authentic Montessori experience that empowers
+                  children to become self-motivated, globally conscious, and
+                  empathetic individuals through a nurturing and prepared
+                  environment.
+                </p>
+              </div>
+              <div class="h-px bg-outline-variant/50"></div>
+              <div>
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="p-3 bg-secondary rounded-xl text-on-secondary">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </div>
+                  <h2 class="font-headline-lg text-headline-lg">Our Vision</h2>
+                </div>
+                <p
+                  class="font-body-lg text-body-lg text-secondary leading-relaxed"
+                >
+                  To be the leading light in early childhood education in Ghana,
+                  setting the standard for holistic development where the love
+                  of learning is kindled for a lifetime.
+                </p>
+              </div>
+            </div>
+            <div class="relative grid grid-cols-2 gap-4">
+              <div class="space-y-4 pt-12">
+                <div
+                  class="h-64 rounded-2xl bg-cover bg-center shadow-lg"
+                  data-alt="A portrait of a young Ghanaian girl focusing intently on a Montessori math activity with colored beads. The soft natural light highlights her concentration and the vibrant colors of the beads. The background is a blurred, organized classroom with light wood textures."
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCwfnWy0mwnJpZEQjrIz7FaN2jV1w83ce7uMMnbJlYM2-oPzAq5NYc5pVpLNVzr_rCobMUFs4fMy4EDBaSd6BQAqfgfM_KINk1wlan5yvueY4J9np5VB5k1dpSAG1_nTYqYQLup82Va4eikCGHuxP29e9K0sPTVrJ7oSfe61Vda_ZKd-0gkQvwdlqoH_WbYZonS903VxrPz-g70RNZFz_tyC_5s-s1Hjnp5A3L3QuE4QxGW9lac7TCwLrA65b5mAy1cMkaxzO1w83iW&quot;);
+                  "
+                ></div>
+                <div
+                  class="h-48 rounded-2xl bg-primary flex items-center justify-center p-6 text-center text-on-primary"
+                >
+                  <p class="font-headline-md italic">
+                    "Follow the child, but follow the child as his leader."
+                  </p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="h-48 rounded-2xl bg-secondary flex items-center justify-center p-6 text-center text-on-secondary"
+                >
+                  <p class="font-body-lg">1:12 Teacher to Student Ratio</p>
+                </div>
+                <div
+                  class="h-64 rounded-2xl bg-cover bg-center shadow-lg"
+                  data-alt="Two children collaborating on a creative project in a bright, modern school workshop area. They are laughing and sharing tools, embodying the communal and social development aspects of the school's philosophy. High-key, natural lighting fills the frame."
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAY417XZlPGkF9tGfabl51xn9emBV9Smaw1hhBls6ecjTAM40OsqGZSA7ejFObJnJL2UQm5xg1-utKPj-BOFF2gPkkjnLoXZiMdeWl7Xq5txhiTLISoQMDt5E_Tofs92r-Uwz5u3cMS9FDpHlTDDd3pvpzGY5RFjTFTDXR7eUR92VJnwFY-xqj6kSfqG3TbiofXgbV4AhpfRyxnNCCu5wvYPCupvTM-aEZw6kehS-r1ODnSYL3qqU2dNMTPzWYlde98y01mgBPImyHR&quot;);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Meet Our Team -->
+      <section
+        class="py-xl max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop"
+      >
+        <div class="text-center mb-xl">
+          <span
+            class="text-primary font-label-md text-label-md uppercase tracking-widest"
+            >Our Educators</span
+          >
+          <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">
+            Nurturing Minds, Shaping Futures
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          <!-- Team Member 1 -->
+          <div
+            class="group bg-white p-4 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/10"
+          >
+            <div
+              class="relative aspect-square rounded-[1.5rem] overflow-hidden mb-6"
+            >
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Professional headshot of a female educator in her 40s, smiling warmly. She wears traditional Ghanaian fabric with modern styling. The background is a soft-focus library. The lighting is flattering and professional, reflecting her role as a senior leader."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS9qgi2bqnw7t9t1zMkMHycvlji1MkgygdI39hpgV7R_4x7_MTvYWKbL2YZR6Y5o3dPeb36A0Om34e2iiug79mfTYfQ4m1DhbfVkUtLuCFMwY9mEbb2m9rlPjxsMfrAFN64KtdbHsxSW5hPyzgnTUL5FAznrvYeAkSG-TzsmNi8mesk-CrklyGOLK0O7AAd1_OKYLWUMe8p7sfS45mlJX2Dy6fMiZzeKCK2Oc_ADtwwCR791_UCalPxcF5cnRR8D4j8K3qDRQE5djf"
+              />
+            </div>
+            <div class="text-center px-2">
+              <h4 class="font-headline-md text-headline-md text-on-surface">
+                Ms. Ama Serwaa
+              </h4>
+              <p class="text-primary font-label-md text-label-md mb-4">
+                Head of School
+              </p>
+              <p class="text-secondary font-body-sm mb-4">
+                Certified Montessori Lead with 15 years of experience in early
+                childhood pedagogy.
+              </p>
+            </div>
+          </div>
+          <!-- Team Member 2 -->
+          <div
+            class="group bg-white p-4 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/10"
+          >
+            <div
+              class="relative aspect-square rounded-[1.5rem] overflow-hidden mb-6"
+            >
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Professional portrait of a male teacher, young and enthusiastic, holding a small wooden robot kit. He is smiling and dressed in a smart-casual outfit. The setting is a clean, bright STEM lab. The mood is modern, professional, and approachable."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxN463IOwhy4-PlWSP8PRchs37WHnU73BIKWAGE2HpRNq4lZs_vpb6ekkajQb5DkKgYlqlTIVL_iN6vwrUfNDLxo1Tw3pa3ur2fdtSxSIT-jYlrp4oIMLo9-yS0KhaVRp-lHO3eHvkBrCSsjkRI62A0ww0kujeG-svp1JM6wUP_XjXx7bForwuivA7u0hUjZcXOlPDtczPi7p6rcBRmzjZcjSegi_jDO9mhitu_f7pgacL14CY7IEcXqFUVMyaU5Qs-fMrA93YtJdd"
+              />
+            </div>
+            <div class="text-center px-2">
+              <h4 class="font-headline-md text-headline-md text-on-surface">
+                Mr. Kofi Asante
+              </h4>
+              <p class="text-primary font-label-md text-label-md mb-4">
+                Robotics &amp; Coding Lead
+              </p>
+              <p class="text-secondary font-body-sm mb-4">
+                Innovator bridging the gap between traditional learning and
+                future technology.
+              </p>
+            </div>
+          </div>
+          <!-- Team Member 3 -->
+          <div
+            class="group bg-white p-4 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/10"
+          >
+            <div
+              class="relative aspect-square rounded-[1.5rem] overflow-hidden mb-6"
+            >
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Warm portrait of a female teacher in her 30s, sitting among children's books. She has a kind expression and is wearing colorful attire. The environment is a cozy classroom nook. Professional lighting with a sun-warmed tone."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWTXVGaFRw41A7AI8_dEzQx8qfrzEP7_eWMah6fiSyyzSbraI_SqAdtPftfDwqjxJLeeKIKYbwPaATBoRsQeiQ6xmLtHHurZPfPN4KTowgNOhu6N_gxApwFqlW1xIQsuj7lXvaHHmzjnT1mfufTkQPOc11YjCusjlQzUa2IXdeo_cSTa4jARKmr5cHynUyThr8OBZw9-JCpgRnNTaAvPjDEJBJDYCYCrVXg0FmNdy4dM0ArbON3iMG9TWA2XMt9XHBR2CWc_auyBel"
+              />
+            </div>
+            <div class="text-center px-2">
+              <h4 class="font-headline-md text-headline-md text-on-surface">
+                Mrs. Elikem Mensah
+              </h4>
+              <p class="text-primary font-label-md text-label-md mb-4">
+                Pre-School Coordinator
+              </p>
+              <p class="text-secondary font-body-sm mb-4">
+                Specialist in linguistic development and sensory integration for
+                ages 3-6.
+              </p>
+            </div>
+          </div>
+          <!-- Team Member 4 -->
+          <div
+            class="group bg-white p-4 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/10"
+          >
+            <div
+              class="relative aspect-square rounded-[1.5rem] overflow-hidden mb-6"
+            >
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A portrait of an administrator, middle-aged male, smiling in a modern office with school awards in the background. He is wearing a professional suit. The image conveys reliability, trust, and academic excellence."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqagRnKSt076YOSweOvbK_h9ilEJxkGnr0J5CWXa6eulAmRUVkickS1nZmqJpbi9aExCsH2wJIUU323zbatXkAjmj_yf1kh55k6Yaxoo1I3F1KMoyqpLZZ3wS_8dhILFu18xkP6tY2WIz_I3eMTboa-SUlTOQ0CCggYkQsMyBmrvXZddSHPunP5OwY-qspTF1caW8ugIOQ-o3lf4VFr54rstpdNvTRVOEgt1pHrLKRQU7ch-QqUa2MYBDMIbVJllmw3aCTth8kp50w"
+              />
+            </div>
+            <div class="text-center px-2">
+              <h4 class="font-headline-md text-headline-md text-on-surface">
+                Dr. David Tetteh
+              </h4>
+              <p class="text-primary font-label-md text-label-md mb-4">
+                Academic Director
+              </p>
+              <p class="text-secondary font-body-sm mb-4">
+                Overseeing curriculum standards and ensuring every child
+                achieves their potential.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Section -->
+      <section
+        class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pb-xl"
+      >
+        <div
+          class="bg-primary rounded-[3rem] p-12 text-center text-on-primary overflow-hidden relative"
+        >
+          <div class="absolute top-0 right-0 p-8 opacity-10">
+            <span class="material-symbols-outlined text-[10rem]">school</span>
+          </div>
+          <div class="relative z-10">
+            <h2 class="font-headline-lg text-headline-lg mb-6">
+              Experience the Ashville Difference
+            </h2>
+            <p
+              class="font-body-lg text-body-lg max-w-2xl mx-auto mb-8 opacity-90"
+            >
+              Join our community of happy learners and dedicated parents. Book a
+              school tour today to see our philosophy in action.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <button
+                class="bg-white text-primary px-10 py-4 rounded-2xl font-label-md text-label-md hover:scale-105 transition-all"
+              >
+                Schedule a Tour
+              </button>
+              <button
+                class="bg-primary-container text-on-primary-container px-10 py-4 rounded-2xl font-label-md text-label-md hover:scale-105 transition-all"
+              >
+                Contact Admissions
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-highest w-full rounded-t-xl mt-lg">
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-lg max-w-[1280px] mx-auto"
+      >
+        <div class="space-y-6">
+          <div
+            class="font-headline-md text-headline-md font-bold text-on-surface"
+          >
+            Ashville School
+          </div>
+          <p class="font-body-sm text-body-sm text-secondary">
+            Nurturing curiosity and character in a world-class Montessori
+            environment in Adenta, Ghana.
+          </p>
+          <div class="flex gap-4">
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer"
+            >
+              <span class="material-symbols-outlined">face_nod</span>
+            </div>
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer"
+            >
+              <span class="material-symbols-outlined">camera</span>
+            </div>
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all cursor-pointer"
+            >
+              <span class="material-symbols-outlined">alternate_email</span>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <h4 class="font-label-md text-label-md text-on-surface">
+            Quick Links
+          </h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >About Ashville</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Our Programs</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Admissions Process</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Coding &amp; Robotics</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >School Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h4 class="font-label-md text-label-md text-on-surface">
+            Our Location
+          </h4>
+          <div class="text-secondary font-body-sm space-y-4">
+            <p>Adenta Sakora, Behind the Fire Station<br />Accra, Ghana</p>
+            <p>
+              <strong>Phone:</strong> 0244 374 343<br /><strong>Email:</strong>
+              info@ashvilleschool.com
+            </p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <h4 class="font-label-md text-label-md text-on-surface">
+            Join Our Newsletter
+          </h4>
+          <p class="text-secondary font-body-sm">
+            Stay updated with our latest news and events.
+          </p>
+          <div class="flex gap-2">
+            <input
+              class="bg-surface-bright border border-outline-variant rounded-lg px-4 py-2 w-full focus:ring-1 focus:ring-primary outline-none text-body-sm"
+              placeholder="Your email"
+              type="email"
+            />
+            <button
+              class="bg-secondary text-white p-2 rounded-lg hover:bg-on-surface transition-all"
+            >
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-outline-variant/30 py-6 text-center">
+        <p class="font-body-sm text-lbody-sm text-secondary">
+          © 2024 Ashville School Montessori. All rights reserved. Nurturing With
+          Love.
+        </p>
+      </div>
+    </footer>
+    <script>
+      // Simple scroll interaction for nav
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) {
+          nav.classList.add("shadow-md");
+        } else {
+          nav.classList.remove("shadow-md");
+        }
+      });
+
+      // Hover lift effect for team cards (already handled by CSS, but can add JS triggers for more complex items)
+      const teamCards = document.querySelectorAll(".group");
+      teamCards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          // Potential for more custom animation logic here
+        });
+      });
+    </script>
+  </body>
+</html>

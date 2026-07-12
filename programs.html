@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      try {
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-tertiary-fixed": "#1b1c19",
+                "inverse-surface": "#303030",
+                "on-tertiary-container": "#3c3d39",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "outline-variant": "#dbc1ba",
+                "surface-variant": "#e4e2e2",
+                "on-tertiary-fixed-variant": "#474744",
+                "surface-container-lowest": "#ffffff",
+                tertiary: "#5e5e5b",
+                "on-secondary-container": "#636262",
+                error: "#ba1a1a",
+                "surface-tint": "#984630",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-highest": "#e4e2e2",
+                "surface-container-high": "#eae8e7",
+                "tertiary-fixed": "#e4e2dd",
+                "surface-bright": "#fbf9f8",
+                primary: "#984630",
+                "on-primary-fixed": "#3c0800",
+                "surface-dim": "#dbd9d9",
+                "surface-container-low": "#f5f3f3",
+                "on-background": "#1b1c1c",
+                secondary: "#5f5e5e",
+                "primary-container": "#f28c71",
+                "tertiary-container": "#a8a7a3",
+                "tertiary-fixed-dim": "#c8c6c2",
+                "on-surface-variant": "#55433e",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-primary-fixed-variant": "#7a2f1b",
+                "surface-container": "#efeded",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                background: "#fbf9f8",
+                "inverse-on-surface": "#f2f0f0",
+                outline: "#88726d",
+                "on-surface": "#1b1c1c",
+                "inverse-primary": "#ffb4a1",
+                "secondary-fixed": "#e5e2e1",
+                "on-error-container": "#93000a",
+                surface: "#fbf9f8",
+                "primary-fixed": "#ffdbd1",
+                "on-primary-container": "#6d2512",
+                "secondary-container": "#e2dfde",
+                "primary-fixed-dim": "#ffb4a1",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#474746",
+              },
+              borderRadius: {
+                DEFAULT: "0.25rem",
+                lg: "0.5rem",
+                xl: "0.75rem",
+                full: "9999px",
+              },
+              spacing: {
+                sm: "12px",
+                "margin-mobile": "16px",
+                xl: "80px",
+                base: "8px",
+                "margin-desktop": "64px",
+                md: "24px",
+                xs: "4px",
+                lg: "48px",
+                gutter: "24px",
+              },
+              fontFamily: {
+                "label-md": ["Inter"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-sm": ["Inter"],
+              },
+              fontSize: {
+                "label-md": [
+                  "14px",
+                  {
+                    lineHeight: "16px",
+                    letterSpacing: "0.05em",
+                    fontWeight: "600",
+                  },
+                ],
+                "headline-xl": [
+                  "48px",
+                  {
+                    lineHeight: "56px",
+                    letterSpacing: "-0.02em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                "headline-lg-mobile": [
+                  "28px",
+                  { lineHeight: "36px", fontWeight: "700" },
+                ],
+                "headline-lg": [
+                  "32px",
+                  {
+                    lineHeight: "40px",
+                    letterSpacing: "-0.01em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                "headline-md": [
+                  "24px",
+                  { lineHeight: "32px", fontWeight: "600" },
+                ],
+                "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              },
+            },
+          },
+        };
+      } catch (_e) {}
+    </script>
+    <meta charset="utf-8" />
+  </head>
+  <body class="font-body-md text-body-md overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+      class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 border-b border-outline-variant/30 transition-all duration-300"
+    >
+      <div
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            alt="Ashville School Logo"
+            class="h-10 w-auto"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC-iX_yK2jPPxT5nvwM7V5W26IvBUffKdIDnkKSv-m8vgMSin29WaMFr0naqgCZTXqBItBJLo3ugQtuOiNWyz59aYqLCA4xo44E9JmCxRd1vSBTGoWGfDPZ-Ny3xS4NOaXNEkRAMdDxn5cYULRMG-MsOjaHfrXTzHMDIWUVL88wbPndRqQafv1S7lFGL9cJY_5y0COJaHywJ_QSsIQqaHU1cl8MgVvgX7IohZoDuqRhsdmEe24edAAiK6cZtn8SA1Ud5go4OI4MIeN"
+          />
+          <span
+            class="font-headline font-bold text-primary text-xl hidden sm:block"
+            >Ashville School</span
+          >
+        </div>
+        <div class="hidden lg:flex items-center gap-8">
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/about.html"
+            >About</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/programs.html"
+            >Our Programs</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/gallery.html"
+            >Gallery</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/admissions.html"
+            >Admissions</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/contact.html"
+            >Contact</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:shadow-lg active:scale-95 transition-all"
+          >
+            Enroll Now
+          </button>
+          <button
+            class="lg:hidden p-2 text-primary"
+            onclick="toggleMobileMenu()"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+      <!-- Simple Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-4 space-y-4"
+      >
+        <a class="block font-semibold" href="#" onclick="toggleMobileMenu()"
+          >Home</a
+        >
+        <a
+          class="block font-semibold"
+          href="#about"
+          onclick="toggleMobileMenu()"
+          >About</a
+        >
+        <a
+          class="block font-semibold"
+          href="#programs"
+          onclick="toggleMobileMenu()"
+          >Our Programs</a
+        >
+        <a
+          class="block font-semibold"
+          href="#gallery"
+          onclick="toggleMobileMenu()"
+          >Gallery</a
+        >
+        <a
+          class="block font-semibold"
+          href="#admissions"
+          onclick="toggleMobileMenu()"
+          >Admissions</a
+        >
+        <a
+          class="block font-semibold"
+          href="#contact"
+          onclick="toggleMobileMenu()"
+          >Contact</a
+        >
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative py-xl bg-surface-container-low overflow-hidden">
+      <div
+        class="max-w-[1280px] mx-auto px-4 md:px-margin-desktop relative z-10"
+      >
+        <div class="max-w-2xl">
+          <span
+            class="inline-block px-3 py-1 rounded-full bg-primary-container/20 text-on-primary-container font-label-md text-label-md mb-4 uppercase tracking-wider"
+            >Academic Excellence</span
+          >
+          <h1
+            class="font-headline-xl text-headline-xl md:text-6xl text-on-surface mb-6 leading-tight"
+          >
+            Nurturing Potential through
+            <span class="text-primary italic">Montessori</span> Principles
+          </h1>
+          <p class="font-body-lg text-body-lg text-secondary mb-8">
+            Discover our carefully designed learning environments where every
+            child's unique journey is celebrated. From our nurturing Creche to
+            our innovative Robotics curriculum.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#foundational"
+              class="flex items-center gap-2 font-label-md text-label-md text-primary font-bold"
+            >
+              View Early Years
+              <span class="material-symbols-outlined">arrow_downward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Decorative subtle element -->
+      <div
+        class="absolute -right-20 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
+      ></div>
+    </header>
+    <!-- Programs Grid: The Bento Explorer -->
+    <main class="max-w-[1280px] mx-auto px-4 md:px-margin-desktop py-xl">
+      <!-- Section: Foundational Years -->
+      <div id="foundational" class="mb-20">
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">
+              Early Learning Stages
+            </h2>
+            <p class="text-secondary max-w-xl">
+              Focusing on physical development, sensory exploration, and
+              language acquisition in a safe, warm environment.
+            </p>
+          </div>
+          <div
+            class="hidden md:block h-px flex-1 bg-outline-variant/30 mx-8 mb-4"
+          ></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <!-- Creche Card -->
+          <div
+            class="bg-surface-container-lowest rounded-xl card-shadow overflow-hidden flex flex-col h-full border border-outline-variant/10"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A brightly lit, clean, and safe Montessori Creche environment in Ghana. Soft cream-colored mats on the floor, wooden toys, and a nurturing African teacher gently interacting with a baby. The room is filled with soft natural light and uses a warm, sun-kissed color palette consistent with Ashville School branding."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgkS1L2ydIsgEMBDQCLOn9S1DdaTOGI5CcrMfBFrReIq70E0DXT-Vxv3gCXK2HrtfzKR0eItESkzervhBoyoj2yOZ_sfpEVZ31Prdbj-P0c7KyY2a6M6SwSV-_VCpfKhd0LVJ76i0IvxPmwlFt7uxUwkLHZ7iRxz_dzfzurUHLDRNGtEfYaZUHRA97g7EffbImpUa9vWGPIpWUOlVVHvHD8_jiJ8dF_c2bGCWV1gD-YGby6yQV_rmSctAe0a77aQZYSS3lRGv5IPC0"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-bold text-xs uppercase"
+              >
+                6mo - 1.5yrs
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3
+                class="font-headline-md text-headline-md text-on-surface mb-3"
+              >
+                Creche
+              </h3>
+              <p class="text-body-sm text-on-surface-variant mb-6 flex-1">
+                A loving and safe haven designed to stimulate senses and foster
+                early motor skills through soft play and responsive care.
+              </p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3 text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >check_circle</span
+                  >
+                  Sensory-rich play zones
+                </li>
+                <li class="flex items-start gap-3 text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >check_circle</span
+                  >
+                  High caregiver-to-infant ratio
+                </li>
+              </ul>
+              <button
+                class="w-full py-2 border border-outline text-on-surface hover:bg-surface-container rounded-lg font-label-md transition-colors"
+              >
+                Details
+              </button>
+            </div>
+          </div>
+          <!-- Nursery Card -->
+          <div
+            class="bg-surface-container-lowest rounded-xl card-shadow overflow-hidden flex flex-col h-full border border-outline-variant/10"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Toddlers in a Montessori Nursery setting, exploring wooden counting blocks and sensory bins. The space is organized with low shelves and high-quality educational materials. African children are smiling and focused on their tasks under the guidance of a professional educator in a bright, modern classroom."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Az2ZHGNJc4e-tloX7T_PsiSJoGP2dSe_yKXFE8LWAWkns1ZxwPSLA2MZTNXlAGni8jrrBDfx4Kr86SAzogN5_kOQqH-l9173Zo0c-CaJO54RIxWu_gHTqpMahvIvRHUobxe4W90r08gcEniYYgtvLXHJO3wDq4nrDgXqxUy2T5x2ad2KOMFdQgP0XBhZFh8qNJa5JQbAkL6wH0C7fZ3DueHedCX9W0366OTWpaFysTnnzbvQI9rPlHUtp5xlGDFwnCPuWC7W_rQo"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-bold text-xs uppercase"
+              >
+                1.5 - 3yrs
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3
+                class="font-headline-md text-headline-md text-on-surface mb-3"
+              >
+                Nursery
+              </h3>
+              <p class="text-body-sm text-on-surface-variant mb-6 flex-1">
+                Introduction to practical life activities and language
+                development, encouraging independence and social interaction.
+              </p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3 text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >check_circle</span
+                  >
+                  Language &amp; Phonics foundation
+                </li>
+                <li class="flex items-start gap-3 text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >check_circle</span
+                  >
+                  Practical life skill sessions
+                </li>
+              </ul>
+              <button
+                class="w-full py-2 border border-outline text-on-surface hover:bg-surface-container rounded-lg font-label-md transition-colors"
+              >
+                Details
+              </button>
+            </div>
+          </div>
+          <!-- Kindergarten Card -->
+          <div
+            class="bg-surface-container-lowest rounded-xl card-shadow overflow-hidden flex flex-col h-full border border-outline-variant/10"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Kindergarten students engaged in collaborative group work in a modern Ghanaian school. Brightly colored furniture and a wall mural of the world map. Children are using tablet computers and traditional Montessori math beads. The lighting is crisp and the atmosphere is energetic and academically focused."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAQxRKP1aZN8DWFcqWx5fSXZqKkjwjOnOWdtjn-Q58yymQc7Z_SK2G8Rp18JpFDlLu_3AL6sEsFUu9unG9guZG6OaP3iKrtLavUSZKVDIWC9XLv66ggMYFpGt_RzKFgTBmDfPaRBatYkzXP6h_L_ZEgVWomI3_BcgnmXBKdzPNt0nDF_N730Yb1sC0gZaTL3Earp5PYqkL1QkqDb_p0Akn7M9aZcUM_d0Vr5OqJ3-VKCPNNFe-rY_KAQPLAU3XyRyY92vi3XqKwXqz"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-bold text-xs uppercase"
+              >
+                3 - 5yrs
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3
+                class="font-headline-md text-headline-md text-on-surface mb-3"
+              >
+                Kindergarten
+              </h3>
+              <p class="text-body-sm text-on-surface-variant mb-6 flex-1">
+                A mixed-age community fostering leadership, peer learning, and
+                advanced mathematical and literacy concepts.
+              </p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3 text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >check_circle</span
+                  >
+                  Mathematical mind building
+                </li>
+                <li class="flex items-start gap-3 text-body-sm">
+                  <span class="material-symbols-outlined text-primary text-lg"
+                    >check_circle</span
+                  >
+                  Cultural and global awareness
+                </li>
+              </ul>
+              <button
+                class="w-full py-2 border border-outline text-on-surface hover:bg-surface-container rounded-lg font-label-md transition-colors"
+              >
+                Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Featured Section: Coding & Robotics (Bento Highlight) -->
+      <div class="mb-20">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-gutter bg-on-tertiary-fixed rounded-2xl overflow-hidden min-h-[450px]"
+        >
+          <!-- Image Content -->
+          <div class="lg:col-span-7 relative h-64 lg:h-auto overflow-hidden">
+            <img
+              class="w-full h-full object-cover opacity-90 scale-105 transition-transform duration-[10s] hover:scale-100"
+              data-alt="A modern, high-tech robotics lab in a school with diverse students collaborating. Children are using visual block coding on tablets to control small robots on a table. The lighting is a mix of natural sun and cool LED lab lights. The image conveys innovation, curiosity, and high-end technology integration in education."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqjWE5natTycCXnDjN2NM5xdVRtD3YpnBlFr9DXfCIzTsPrY8i-glYn0rLufTPpFio6VasWCIGswmAV-Xp123Vck_9dOWn3oIZGsgtC-iPJtyqIx6WK1RHbVuSfeD2GRIxtPmyklH08JpXRx3cLrlvc3k3CsFlK2FuoRvo2DFIPKRn0uAnk7gfi4yg8-p-ArKiNa1JZvkPLZSBq5PBRpZ6IoqG9GeVdDV4t8GXj5mNZ8ReS8vepfAcwBO_8cVBM4GqUbL8-39q4N2W"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-on-tertiary-fixed/60 to-transparent lg:hidden"
+            ></div>
+          </div>
+          <!-- Text Content -->
+          <div
+            class="lg:col-span-5 p-8 md:p-12 flex flex-col justify-center bg-on-tertiary-fixed text-white relative"
+          >
+            <div class="absolute top-8 right-8">
+              <span
+                class="material-symbols-outlined text-primary-container text-4xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >precision_manufacturing</span
+              >
+            </div>
+            <h2 class="font-headline-lg text-headline-lg mb-6 leading-tight">
+              Special Feature: Coding &amp; Robotics
+            </h2>
+            <p class="text-body-lg text-white/80 mb-8">
+              Preparing students for the 21st century. Our curriculum integrates
+              logical thinking, computational design, and hands-on engineering
+              from Grade 1.
+            </p>
+            <div class="space-y-4 mb-10">
+              <div
+                class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xl"
+                    >code</span
+                  >
+                </div>
+                <div>
+                  <h4 class="font-bold text-body-md">Visual Block Coding</h4>
+                  <p class="text-xs text-white/60">
+                    Logic and sequencing basics
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xl"
+                    >robot_2</span
+                  >
+                </div>
+                <div>
+                  <h4 class="font-bold text-body-md">Modular Robotics</h4>
+                  <p class="text-xs text-white/60">
+                    Hands-on engineering concepts
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="bg-primary text-on-primary font-bold px-8 py-4 rounded-xl hover:bg-primary/90 transition-all self-start"
+            >
+              Explore Curriculum
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Section: Primary & Specialized Care -->
+      <div>
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4"
+        >
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">
+              Primary &amp; Specialized Support
+            </h2>
+            <p class="text-secondary max-w-xl">
+              Comprehensive education and support services for modern families.
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+          <!-- Primary School -->
+          <div
+            class="group bg-surface-container-lowest p-8 rounded-xl card-shadow border border-outline-variant/10 flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-14 h-14 bg-primary-container/10 text-primary rounded-2xl flex items-center justify-center mb-6 transition-colors group-hover:bg-primary group-hover:text-white"
+              >
+                <span class="material-symbols-outlined text-3xl">school</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-3">
+                Primary (Grade 1-3)
+              </h3>
+              <p class="text-body-md text-on-surface-variant mb-6">
+                A structured yet creative transition into formalized academic
+                subjects, emphasizing research skills and project-based
+                learning.
+              </p>
+            </div>
+            <div
+              class="pt-6 border-t border-outline-variant/30 flex items-center justify-between"
+            >
+              <span class="text-label-md font-label-md text-secondary"
+                >Full Day Program</span
+              >
+              <a
+                class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all"
+                href="#"
+                >Learn more
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+          <!-- Day Care -->
+          <div
+            class="group bg-surface-container-lowest p-8 rounded-xl card-shadow border border-outline-variant/10 flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-14 h-14 bg-primary-container/10 text-primary rounded-2xl flex items-center justify-center mb-6 transition-colors group-hover:bg-primary group-hover:text-white"
+              >
+                <span class="material-symbols-outlined text-3xl"
+                  >child_care</span
+                >
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-3">Day Care</h3>
+              <p class="text-body-md text-on-surface-variant mb-6">
+                Flexible hours for working parents. We provide a nutritious
+                lunch, rest periods, and engaging free-play activities.
+              </p>
+            </div>
+            <div
+              class="pt-6 border-t border-outline-variant/30 flex items-center justify-between"
+            >
+              <span class="text-label-md font-label-md text-secondary"
+                >Flexible Slots</span
+              >
+              <a
+                class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all"
+                href="#"
+                >Learn more
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+          <!-- After School Care -->
+          <div
+            class="group bg-surface-container-lowest p-8 rounded-xl card-shadow border border-outline-variant/10 flex flex-col justify-between lg:col-span-1 md:col-span-2 lg:col-span-1"
+          >
+            <div>
+              <div
+                class="w-14 h-14 bg-primary-container/10 text-primary rounded-2xl flex items-center justify-center mb-6 transition-colors group-hover:bg-primary group-hover:text-white"
+              >
+                <span class="material-symbols-outlined text-3xl"
+                  >home_work</span
+                >
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-3">
+                After School Care
+              </h3>
+              <p class="text-body-md text-on-surface-variant mb-6">
+                Homework assistance and enrichment clubs including music, dance,
+                and art to keep students active after class.
+              </p>
+            </div>
+            <div
+              class="pt-6 border-t border-outline-variant/30 flex items-center justify-between"
+            >
+              <span class="text-label-md font-label-md text-secondary"
+                >Until 6:00 PM</span
+              >
+              <a
+                class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all"
+                href="#"
+                >Learn more
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Call to Action -->
+    <section class="bg-surface-container-high py-xl relative overflow-hidden">
+      <div
+        class="max-w-[1280px] mx-auto px-4 md:px-margin-desktop text-center relative z-10"
+      >
+        <h2 class="font-headline-xl text-headline-xl mb-6">
+          Ready to Join the Ashville Family?
+        </h2>
+        <p class="text-body-lg text-secondary max-w-2xl mx-auto mb-10">
+          Book a tour of our campus today and see how our programs create a
+          foundation for lifelong learning and success.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <button
+            class="bg-primary text-on-primary px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform"
+          >
+            Schedule a Visit
+          </button>
+          <button
+            class="bg-white border border-outline px-10 py-4 rounded-xl font-bold text-lg hover:bg-surface-container transition-colors"
+          >
+            Download Brochure
+          </button>
+        </div>
+      </div>
+      <!-- Abstract background pattern -->
+      <div
+        class="absolute inset-0 opacity-5 pointer-events-none"
+        style="
+          background-image: radial-gradient(#984630 1px, transparent 1px);
+          background-size: 32px 32px;
+        "
+      ></div>
+    </section>
+    <!-- Footer Execution -->
+    <footer
+      class="w-full rounded-t-xl bg-surface-container-highest dark:bg-surface-container-lowest"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-4 md:px-margin-desktop py-xl max-w-[1280px] mx-auto"
+      >
+        <div class="col-span-1 md:col-span-1">
+          <div
+            class="font-headline-md text-headline-md font-bold text-on-surface mb-4"
+          >
+            Ashville School
+          </div>
+          <p class="text-body-sm font-body-sm text-secondary mb-6 max-w-xs">
+            Inspiring curious minds in a nurturing environment since inception.
+            Montessori education for the future leaders of Ghana.
+          </p>
+          <div class="flex gap-4">
+            <span
+              class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform"
+              >face_nod</span
+            >
+            <span
+              class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform"
+              >link</span
+            >
+          </div>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-primary mb-6">
+            Quick Links
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a
+                class="text-secondary hover:text-primary transition-colors text-body-sm"
+                href="#"
+                >About Ashville</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-primary underline transition-colors text-body-sm"
+                href="#"
+                >Our Programs</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary hover:text-primary transition-colors text-body-sm"
+                href="#"
+                >Admissions Process</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary hover:text-primary transition-colors text-body-sm"
+                href="#"
+                >Coding &amp; Robotics</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-primary mb-6">
+            Our Location
+          </h4>
+          <p class="text-body-sm text-secondary mb-2">P.O. Box KD 1137</p>
+          <p class="text-body-sm text-secondary mb-2">East Legon, Accra</p>
+          <p class="text-body-sm text-secondary mb-6">Ghana</p>
+          <div class="flex items-center gap-2 text-primary">
+            <span class="material-symbols-outlined text-sm">call</span>
+            <span class="text-body-sm font-bold">0244 374 343</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-primary mb-6">Updates</h4>
+          <p class="text-body-sm text-secondary mb-4">
+            Subscribe to our monthly newsletter for school news and tips.
+          </p>
+          <div class="flex gap-2">
+            <input
+              class="bg-white border-none rounded-lg text-sm flex-1 focus:ring-1 focus:ring-primary"
+              placeholder="Email address"
+              type="email"
+            />
+            <button class="bg-primary text-white p-2 rounded-lg">
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="border-t border-outline-variant/20 max-w-[1280px] mx-auto px-4 md:px-margin-desktop py-6"
+      >
+        <p class="text-body-sm text-secondary text-center md:text-left">
+          © 2024 Ashville School Montessori. All rights reserved. Nurturing With
+          Love.
+        </p>
+      </div>
+    </footer>
+    <!-- Micro-interactions Script -->
+    <script>
+      // Simple scroll reveal effect for sections
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-8");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll("section, .grid > div").forEach((el) => {
+        el.classList.add(
+          "transition-all",
+          "duration-700",
+          "opacity-0",
+          "translate-y-8",
+        );
+        observer.observe(el);
+      });
+
+      // Sticky nav shadow toggle
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 20) {
+          nav.classList.add("shadow-md");
+        } else {
+          nav.classList.remove("shadow-md");
+        }
+      });
+    </script>
+  </body>
+</html>

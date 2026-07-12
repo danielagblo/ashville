@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      try {
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-tertiary-fixed": "#1b1c19",
+                "inverse-surface": "#303030",
+                "on-tertiary-container": "#3c3d39",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "outline-variant": "#dbc1ba",
+                "surface-variant": "#e4e2e2",
+                "on-tertiary-fixed-variant": "#474744",
+                "surface-container-lowest": "#ffffff",
+                tertiary: "#5e5e5b",
+                "on-secondary-container": "#636262",
+                error: "#ba1a1a",
+                "surface-tint": "#984630",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-highest": "#e4e2e2",
+                "surface-container-high": "#eae8e7",
+                "tertiary-fixed": "#e4e2dd",
+                "surface-bright": "#fbf9f8",
+                primary: "#984630",
+                "on-primary-fixed": "#3c0800",
+                "surface-dim": "#dbd9d9",
+                "surface-container-low": "#f5f3f3",
+                "on-background": "#1b1c1c",
+                secondary: "#5f5e5e",
+                "primary-container": "#f28c71",
+                "tertiary-container": "#a8a7a3",
+                "tertiary-fixed-dim": "#c8c6c2",
+                "on-surface-variant": "#55433e",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-primary-fixed-variant": "#7a2f1b",
+                "surface-container": "#efeded",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                background: "#fbf9f8",
+                "inverse-on-surface": "#f2f0f0",
+                outline: "#88726d",
+                "on-surface": "#1b1c1c",
+                "inverse-primary": "#ffb4a1",
+                "secondary-fixed": "#e5e2e1",
+                "on-error-container": "#93000a",
+                surface: "#fbf9f8",
+                "primary-fixed": "#ffdbd1",
+                "on-primary-container": "#6d2512",
+                "secondary-container": "#e2dfde",
+                "primary-fixed-dim": "#ffb4a1",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#474746",
+              },
+              borderRadius: {
+                DEFAULT: "0.25rem",
+                lg: "0.5rem",
+                xl: "0.75rem",
+                full: "9999px",
+              },
+              spacing: {
+                sm: "12px",
+                "margin-mobile": "16px",
+                xl: "80px",
+                base: "8px",
+                "margin-desktop": "64px",
+                md: "24px",
+                xs: "4px",
+                lg: "48px",
+                gutter: "24px",
+              },
+              fontFamily: {
+                "label-md": ["Inter"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-sm": ["Inter"],
+              },
+              fontSize: {
+                "label-md": [
+                  "14px",
+                  {
+                    lineHeight: "16px",
+                    letterSpacing: "0.05em",
+                    fontWeight: "600",
+                  },
+                ],
+                "headline-xl": [
+                  "48px",
+                  {
+                    lineHeight: "56px",
+                    letterSpacing: "-0.02em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                "headline-lg-mobile": [
+                  "28px",
+                  { lineHeight: "36px", fontWeight: "700" },
+                ],
+                "headline-lg": [
+                  "32px",
+                  {
+                    lineHeight: "40px",
+                    letterSpacing: "-0.01em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                "headline-md": [
+                  "24px",
+                  { lineHeight: "32px", fontWeight: "600" },
+                ],
+                "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              },
+            },
+          },
+        };
+      } catch (_e) {}
+    </script>
+    <meta charset="utf-8" />
+  </head>
+  <body class="bg-surface text-on-surface font-body-md">
+    <!-- TopNavBar -->
+    <header
+      class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 dark:bg-surface-dim/95 border-b border-outline-variant/30 shadow-sm"
+    >
+      <!-- Navigation -->
+      <nav
+        class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 border-b border-outline-variant/30 transition-all duration-300"
+      >
+        <div
+          class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              alt="Ashville School Logo"
+              class="h-10 w-auto"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC-iX_yK2jPPxT5nvwM7V5W26IvBUffKdIDnkKSv-m8vgMSin29WaMFr0naqgCZTXqBItBJLo3ugQtuOiNWyz59aYqLCA4xo44E9JmCxRd1vSBTGoWGfDPZ-Ny3xS4NOaXNEkRAMdDxn5cYULRMG-MsOjaHfrXTzHMDIWUVL88wbPndRqQafv1S7lFGL9cJY_5y0COJaHywJ_QSsIQqaHU1cl8MgVvgX7IohZoDuqRhsdmEe24edAAiK6cZtn8SA1Ud5go4OI4MIeN"
+            />
+            <span
+              class="font-headline font-bold text-primary text-xl hidden sm:block"
+              >Ashville School</span
+            >
+          </div>
+          <div class="hidden lg:flex items-center gap-8">
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/"
+              >Home</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/about.html"
+              >About</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/programs.html"
+              >Our Programs</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/gallery.html"
+              >Gallery</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/admissions.html"
+              >Admissions</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/contact.html"
+              >Contact</a
+            >
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:shadow-lg active:scale-95 transition-all"
+            >
+              Enroll Now
+            </button>
+            <button
+              class="lg:hidden p-2 text-primary"
+              onclick="toggleMobileMenu()"
+            >
+              <span class="material-symbols-outlined">menu</span>
+            </button>
+          </div>
+        </div>
+        <!-- Simple Mobile Menu (Hidden by default) -->
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-4 space-y-4"
+        >
+          <a class="block font-semibold" href="#" onclick="toggleMobileMenu()"
+            >Home</a
+          >
+          <a
+            class="block font-semibold"
+            href="#about"
+            onclick="toggleMobileMenu()"
+            >About</a
+          >
+          <a
+            class="block font-semibold"
+            href="#programs"
+            onclick="toggleMobileMenu()"
+            >Our Programs</a
+          >
+          <a
+            class="block font-semibold"
+            href="#gallery"
+            onclick="toggleMobileMenu()"
+            >Gallery</a
+          >
+          <a
+            class="block font-semibold"
+            href="#admissions"
+            onclick="toggleMobileMenu()"
+            >Admissions</a
+          >
+          <a
+            class="block font-semibold"
+            href="#contact"
+            onclick="toggleMobileMenu()"
+            >Contact</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="max-w-[1280px] mx-auto px-4 md:px-16 py-12">
+      <!-- Header Section -->
+      <section class="mb-12 text-center md:text-left">
+        <h1 class="font-headline-xl text-headline-xl mb-4 text-on-surface">
+          Life at Ashville
+        </h1>
+        <p class="font-body-lg text-body-lg text-secondary max-w-2xl">
+          Explore our vibrant community through the lens. From focused
+          Montessori classroom sessions to joyous outdoor adventures and
+          innovative coding workshops.
+        </p>
+      </section>
+      <!-- Category-->
+      <div
+        class="flex flex-wrap gap-3 mb-10 overflow-x-auto pb-4 scrollbar-hide"
+      >
+        <button
+          onclick="filterGallery('all')"
+          class="filter-btn active px-6 py-2 rounded-full border border-outline-variant font-label-md text-label-md transition-all hover:border-primary"
+        >
+          All Moments
+        </button>
+        <button
+          onclick="filterGallery('academic')"
+          class="filter-btn px-6 py-2 rounded-full border border-outline-variant font-label-md text-label-md transition-all hover:border-primary"
+        >
+          Academic
+        </button>
+        <button
+          onclick="filterGallery('creative')"
+          class="filter-btn px-6 py-2 rounded-full border border-outline-variant font-label-md text-label-md transition-all hover:border-primary"
+        >
+          Creative
+        </button>
+        <button
+          onclick="filterGallery('sports')"
+          class="filter-btn px-6 py-2 rounded-full border border-outline-variant font-label-md text-label-md transition-all hover:border-primary"
+        >
+          Sports
+        </button>
+        <button
+          onclick="filterGallery('campus')"
+          class="filter-btn px-6 py-2 rounded-full border border-outline-variant font-label-md text-label-md transition-all hover:border-primary"
+        >
+          Campus Life
+        </button>
+        <button
+          onclick="filterGallery('coding')"
+          class="filter-btn px-6 py-2 rounded-full border border-outline-variant font-label-md text-label-md transition-all hover:border-primary"
+        >
+          Coding &amp; Robotics
+        </button>
+      </div>
+      <!-- Masonry Gallery -->
+      <div
+        id="gallery-container"
+        class="columns-1 md:columns-2 lg:columns-3 gap-4 w-full"
+      >
+        <!-- Item 1: Academic -->
+        <div
+          class="masonry-item group cursor-pointer break-inside-avoid mb-4"
+          data-category="academic"
+          onclick="openLightbox(0)"
+        >
+          <div
+            class="relative overflow-hidden rounded-xl bg-surface-container shadow-sm group-hover:shadow-lg transition-shadow duration-300 w-full"
+          >
+            <img
+              class="w-full h-auto object-cover block transform transition-transform duration-500 group-hover:scale-105"
+              data-alt="A young Ghanaian girl with braided hair and colorful beads laughing joyfully while working with wooden Montessori sensory cylinders at a light-wood table in a sunlit classroom filled with educational materials and warm wooden shelves. The lighting is soft and golden, highlighting the child's concentration and happiness in a professional light-mode aesthetic."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVRAvm6_BX1DklSzIlSTr5NnDbBbQsb_TIyEB4aQZawULGNbuxEqSvnjmvpwuFrezyExND0idmOlP5DWBOv6SdbWkNRvauMr_FprTc6Mx92okJereocAdmPjFxzMNd4YKmebTwoJFTHB7mwHBnUoGV3kUU4fgfk1uU0TTBqIYzQvYdHBass-Ci9s0PKMx_KiQaJvErPTxpIT2EZXNrXbQ_C2w6aNxlBSB6uGyY_0a9o0LSDOUNIJfqQyF-UWShfCLCRrkWhOSjvi8b"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-on-primary bg-primary w-fit px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2"
+                >Academic</span
+              >
+              <p class="text-white font-headline-md text-sm">
+                Sensory Learning Journey
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Item 2: Campus -->
+        <div
+          class="masonry-item group cursor-pointer break-inside-avoid mb-4"
+          data-category="campus"
+          onclick="openLightbox(1)"
+        >
+          <div
+            class="relative overflow-hidden rounded-xl bg-surface-container shadow-sm group-hover:shadow-lg transition-shadow duration-300 w-full"
+          >
+            <img
+              class="w-full h-auto object-cover block transform transition-transform duration-500 group-hover:scale-105"
+              data-alt="A majestic high-angle aerial view of a modern school campus in Ghana with clean white buildings, grey roofs, and solar panels. A large green football field with a red running track is prominent on the right, surrounded by lush green trees and a gated entrance with the sign 'Adenta International Academy'. The scene is bright and airy under a clear blue sky with a few fluffy clouds."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD20CzlrFSMCM_pyffDgvDYpokhs4gDeEOlW-cLgIAZ7aAPTFi0hZ-YEGcKl85LKaL7-Vtn0XSHEvv5j4WW4IEWbKgXQG6Yh9ULsMklkx3bDoMrD3krbrFNg8rANP5tuPUYYXEiq6liAfGoP1uC1zlyW2YcDaZAHzf5Vu1vhDXhrgYGpZ-9w5BYE3IFE8vSRtuW8EPlJ0K4W_zJpmk6Zx-3ObWSn46LlWLHL1nXhh5tK3a6TO_xS-vp7r-imQd97DnSn3XM_QMKYEdT"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-on-primary bg-primary w-fit px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2"
+                >Campus</span
+              >
+              <p class="text-white font-headline-md text-sm">
+                Modern Sustainable Campus
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Item 3-->
+        <div
+          class="masonry-item group cursor-pointer break-inside-avoid mb-4"
+          data-category="coding"
+          onclick="openLightbox(2)"
+        >
+          <div
+            class="relative overflow-hidden rounded-xl bg-surface-container shadow-sm group-hover:shadow-lg transition-shadow duration-300 w-full"
+          >
+            <img
+              class="w-full h-auto object-cover block transform transition-transform duration-500 group-hover:scale-105"
+              data-alt="A small group of diverse students in Ghana huddled around a small robotic car and a tablet in a high-tech school laboratory. The room is filled with bright, cool lighting that emphasizes a modern educational tech environment. The children look engaged and excited as they debug code, reflecting a minimalist yet professional coding and robotics workshop atmosphere."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2AjFFi1ADB5B_h5kgvvtJ8JtUqWkT3YtOzWV6dLc_avMIXVY2i6G6ASu7czTyLbDgnlpMBKvgIjGFZdj_ecGeg-Bv-thD7w2oJebie2FYRC0sd8XZPlHFnloENt7iti1tW5kUC7jRl3Fp9akPDBJ1HPQcHQwg9_O_MfJ8wCXZjC1pwx2JxHeYNdTpKtkwK_fAu04yjc7z3vu5f0PT47Hr8ioggJyyt2TlKJCKRT9l1EXtpMg1r5diGRUiMtne4r3hrKmSRk9ch-Ja"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-on-primary bg-primary w-fit px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2"
+                >Coding</span
+              >
+              <p class="text-white font-headline-md text-sm">
+                Future Innovators at Work
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Item 4: Creative -->
+        <div
+          class="masonry-item group cursor-pointer break-inside-avoid mb-4"
+          data-category="creative"
+          onclick="openLightbox(3)"
+        >
+          <div
+            class="relative overflow-hidden rounded-xl bg-surface-container shadow-sm group-hover:shadow-lg transition-shadow duration-300 w-full"
+          >
+            <img
+              class="w-full h-auto object-cover block transform transition-transform duration-500 group-hover:scale-105"
+              data-alt="A focused student in an art smock applying bright yellow and coral paints to a canvas in a well-lit creative studio. The background features other student artworks on drying racks, creating a vibrant and communal artistic space. The lighting is natural and diffuse, highlighting the textures of the paint and the artist's intense focus in a professional, light-mode aesthetic."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnFMZdR_ZMSk4Nw2hSf2CxJQV1SCMvXfWOaQtGaulGqMcuQZGkXGTIO4SbnfjaKdJ_FsRvovJ79WQa2Msjq_OlV-xBtiYQSMxBaTg963oNJywlg6MCsUYmVsePTrZWnoozGAe0de0tJP1C73OzdnSBu9dr7cTk7l_HXd5sCgHPCUH2qDNyHXehCkcHyyJr8_yLKcY9pBl9unoqsQBDLcGKA633vdTNAwU6PP6OV6EWf91WBuiBAnlE7qhzQUmaa-PcRT3duNL8_d0Q"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-on-primary bg-primary w-fit px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2"
+                >Creative</span
+              >
+              <p class="text-white font-headline-md text-sm">
+                Unleashing Artistic Potential
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Item 5: Sports -->
+        <div
+          class="masonry-item group cursor-pointer break-inside-avoid mb-4"
+          data-category="sports"
+          onclick="openLightbox(4)"
+        >
+          <div
+            class="relative overflow-hidden rounded-xl bg-surface-container shadow-sm group-hover:shadow-lg transition-shadow duration-300 w-full"
+          >
+            <img
+              class="w-full h-auto object-cover block transform transition-transform duration-500 group-hover:scale-105"
+              data-alt="Action shot of students in athletic gear playing a game of football on a professional green turf field during a sunny afternoon in Ghana. The lighting is dynamic with long shadows, capturing the energy and teamwork of the game. The scene is bright and high-contrast, following a professional corporate sports aesthetic with a focus on healthy living and competition."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8hQ_at2H464Wq-n7wrwej2LW6SE-YfVFh-GwTcYVmzRwHMrasUYPcHCFf_M9dW-5CgQ0R7MLHOAm-PHo_t-Rca0OFASIQfL_F5lbBu2Dnzt55r0HrhDP4BHKWmvRs8cIl6KECXfDMQxSUZylMBwb6jO8Pnw0bkX1ow2tNBwsbUdKUkKuvUgcNGCGJVpglzawTu-8L0q_-Sp__wsM_VPLSbIf4gKCCb0hXHKtvr67xWbVOZZtKR0qfE_ePFbHq-WxeV4ovZFRH2hai"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-on-primary bg-primary w-fit px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2"
+                >Sports</span
+              >
+              <p class="text-white font-headline-md text-sm">
+                Athletic Excellence &amp; Teamwork
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Item 6: Academic -->
+        <div
+          class="masonry-item group cursor-pointer break-inside-avoid mb-4"
+          data-category="academic"
+          onclick="openLightbox(5)"
+        >
+          <div
+            class="relative overflow-hidden rounded-xl bg-surface-container shadow-sm group-hover:shadow-lg transition-shadow duration-300 w-full"
+          >
+            <img
+              class="w-full h-auto object-cover block transform transition-transform duration-500 group-hover:scale-105"
+              data-alt="A teacher in professional attire leaning over a student's desk in a modern, organized classroom, providing personalized guidance. The room features a clean layout with minimalist furniture and high-quality educational posters in the background. The mood is nurturing and structured, captured in bright, natural morning light for a high-end educational branding feel."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf700LsvN519adc1kAeAd8FsG7yXZR_qk1H2g0uxh4zDJ1rOO9aMNW5e53JC39CzQh-nl7sJ4f0Em_XKLqSNAY9pEIynVMd_hY15B7Mf7WvKgQszRk93XVii4emALlnzMPbRf_XHUhnRuc0dQUB1I19mwU9JlewkTM25d55iZfbMGHmSjeNVv9g0o8C-MLILWIsyc0NjfU7zG3eClTSLSvBOWj3DGO8wcYxaQbNv7VxRrPKgvH7Gx_j5v9DGJ6RlJ8UWJa0o3CgUzw"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+            >
+              <span
+                class="text-on-primary bg-primary w-fit px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2"
+                >Academic</span
+              >
+              <p class="text-white font-headline-md text-sm">
+                Personalized Mentorship
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CTA Section -->
+      <section
+        class="mt-24 bg-primary-container rounded-3xl p-12 text-center relative overflow-hidden"
+      >
+        <div class="relative z-10">
+          <h2
+            class="font-headline-lg text-headline-lg text-on-primary-container mb-4"
+          >
+            Want to see more of Ashville?
+          </h2>
+          <p
+            class="font-body-lg text-body-lg text-on-primary-container/80 mb-8 max-w-xl mx-auto"
+          >
+            Join us for a personalized campus tour and experience our nurturing
+            environment firsthand.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <button
+              class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-md text-label-md hover:shadow-lg transition-all"
+            >
+              Book a Campus Tour
+            </button>
+            <button
+              class="bg-surface text-on-surface px-8 py-3 rounded-full font-label-md text-label-md hover:shadow-lg transition-all border border-outline-variant"
+            >
+              Download Prospectus
+            </button>
+          </div>
+        </div>
+        <!-- Decorative circle -->
+        <div
+          class="absolute -right-16 -top-16 w-64 h-64 bg-primary/10 rounded-full"
+        ></div>
+        <div
+          class="absolute -left-16 -bottom-16 w-48 h-48 bg-white/10 rounded-full"
+        ></div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-highest w-full rounded-t-xl mt-24">
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-4 md:px-16 py-12 max-w-[1280px] mx-auto"
+      >
+        <div class="col-span-1 md:col-span-1">
+          <div
+            class="font-headline-md text-headline-md font-bold text-on-surface mb-4"
+          >
+            Ashville School
+          </div>
+          <p class="font-body-sm text-body-sm text-secondary mb-6">
+            Nurturing the leaders of tomorrow through holistic Montessori
+            education and cutting-edge technology programs.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-primary mb-4">
+            Quick Links
+          </h4>
+          <ul class="space-y-2">
+            <li class="">
+              <a
+                class="text-secondary font-body-sm text-body-sm hover:text-primary transition-colors"
+                href="#"
+                >About Ashville</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="text-secondary font-body-sm text-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Our Programs</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="text-secondary font-body-sm text-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Admissions Process</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-primary mb-4">
+            Focus Areas
+          </h4>
+          <ul class="space-y-2">
+            <li class="">
+              <a
+                class="text-secondary font-body-sm text-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Coding &amp; Robotics</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="text-secondary font-body-sm text-body-sm hover:text-primary transition-colors"
+                href="#"
+                >School Gallery</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="text-secondary font-body-sm text-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-primary mb-4">Connect</h4>
+          <div class="flex gap-4 mb-4">
+            <span
+              class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary"
+              >face_nod</span
+            >
+            <span
+              class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary"
+              >language</span
+            >
+            <span
+              class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary"
+              >mail</span
+            >
+          </div>
+          <p class="font-body-sm text-body-sm text-secondary">Accra, Ghana</p>
+        </div>
+      </div>
+      <div class="border-t border-outline-variant/30 py-6 text-center">
+        <p class="font-body-sm text-body-sm text-secondary">
+          © 2024 Ashville School Montessori. All rights reserved. Nurturing With
+          Love.
+        </p>
+      </div>
+    </footer>
+    <!-- Lightbox -->
+    <div
+      class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm hidden flex-col items-center justify-center p-4"
+      id="lightbox"
+    >
+      <button
+        class="absolute top-8 right-8 text-white hover:text-primary-container transition-colors"
+        onclick="closeLightbox()"
+      >
+        <span class="material-symbols-outlined text-4xl">close</span>
+      </button>
+      <button
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-primary-container transition-colors"
+        onclick="changeLightboxImage(-1)"
+      >
+        <span class="material-symbols-outlined text-5xl">chevron_left</span>
+      </button>
+      <button
+        class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-primary-container transition-colors"
+        onclick="changeLightboxImage(1)"
+      >
+        <span class="material-symbols-outlined text-5xl">chevron_right</span>
+      </button>
+      <div
+        class="max-w-5xl max-h-[819px] w-full flex items-center justify-center"
+      >
+        <img
+          class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+          id="lightbox-img"
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgcng9IjgiIGZpbGw9IiNlOGVhZWQiLz48cGF0aCBkPSJNMTcwIDEzMCBsMzAgNDAgbDIwLTE1IGw0MCA1NSBIMTQweiIgZmlsbD0iI2JkYzFjNiIvPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjEyMCIgcj0iMTgiIGZpbGw9IiNiZGMxYzYiLz48L3N2Zz4="
+        />
+      </div>
+      <div class="mt-8 text-center">
+        <p class="text-white font-headline-md" id="lightbox-caption"></p>
+        <p
+          class="text-primary font-label-md uppercase mt-2 tracking-widest"
+          id="lightbox-category"
+        ></p>
+      </div>
+    </div>
+    <script>
+      const galleryData = [
+        {
+          src: "placeholder",
+          dataAlt:
+            "A young Ghanaian girl with braided hair and colorful beads laughing joyfully while working with wooden Montessori sensory cylinders at a light-wood table in a sunlit classroom filled with educational materials and warm wooden shelves. The lighting is soft and golden, highlighting the child's concentration and happiness in a professional light-mode aesthetic.",
+          caption: "Sensory Learning Journey",
+          category: "Academic",
+        },
+        {
+          src: "placeholder",
+          dataAlt:
+            "A majestic high-angle aerial view of a modern school campus in Ghana with clean white buildings, grey roofs, and solar panels. A large green football field with a red running track is prominent on the right, surrounded by lush green trees and a gated entrance with the sign 'Adenta International Academy'. The scene is bright and airy under a clear blue sky with a few fluffy clouds.",
+          caption: "Modern Sustainable Campus",
+          category: "Campus",
+        },
+        {
+          src: "placeholder",
+          dataAlt:
+            "A small group of diverse students in Ghana huddled around a small robotic car and a tablet in a high-tech school laboratory. The room is filled with bright, cool lighting that emphasizes a modern educational tech environment. The children look engaged and excited as they debug code, reflecting a minimalist yet professional coding and robotics workshop atmosphere.",
+          caption: "Future Innovators at Work",
+          category: "Coding",
+        },
+        {
+          src: "placeholder",
+          dataAlt:
+            "A focused student in an art smock applying bright yellow and coral paints to a canvas in a well-lit creative studio. The background features other student artworks on drying racks, creating a vibrant and communal artistic space. The lighting is natural and diffuse, highlighting the textures of the paint and the artist's intense focus in a professional, light-mode aesthetic.",
+          caption: "Unleashing Artistic Potential",
+          category: "Creative",
+        },
+        {
+          src: "placeholder",
+          dataAlt:
+            "Action shot of students in athletic gear playing a game of football on a professional green turf field during a sunny afternoon in Ghana. The lighting is dynamic with long shadows, capturing the energy and teamwork of the game. The scene is bright and high-contrast, following a professional corporate sports aesthetic with a focus on healthy living and competition.",
+          caption: "Athletic Excellence & Teamwork",
+          category: "Sports",
+        },
+        {
+          src: "placeholder",
+          dataAlt:
+            "A teacher in professional attire leaning over a student's desk in a modern, organized classroom, providing personalized guidance. The room features a clean layout with minimalist furniture and high-quality educational posters in the background. The mood is nurturing and structured, captured in bright, natural morning light for a high-end educational branding feel.",
+          caption: "Personalized Mentorship",
+          category: "Academic",
+        },
+      ];
+
+      let currentLightboxIndex = 0;
+
+      function filterGallery(category) {
+        const items = document.querySelectorAll(".masonry-item");
+        const buttons = document.querySelectorAll(".filter-btn");
+
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        items.forEach((item) => {
+          if (
+            category === "all" ||
+            item.getAttribute("data-category") === category
+          ) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+
+      function openLightbox(index) {
+        currentLightboxIndex = index;
+        const item = galleryData[index];
+        const lightbox = document.getElementById("lightbox");
+        const img = document.getElementById("lightbox-img");
+        const caption = document.getElementById("lightbox-caption");
+        const cat = document.getElementById("lightbox-category");
+
+        img.src = item.src;
+        img.setAttribute("data-alt", item.dataAlt);
+        caption.textContent = item.caption;
+        cat.textContent = item.category;
+
+        lightbox.classList.remove("hidden");
+        lightbox.classList.add("flex");
+        document.body.classList.add("lightbox-active");
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.classList.add("hidden");
+        lightbox.classList.remove("flex");
+        document.body.classList.remove("lightbox-active");
+      }
+
+      function changeLightboxImage(dir) {
+        currentLightboxIndex += dir;
+        if (currentLightboxIndex < 0)
+          currentLightboxIndex = galleryData.length - 1;
+        if (currentLightboxIndex >= galleryData.length)
+          currentLightboxIndex = 0;
+        openLightbox(currentLightboxIndex);
+      }
+
+      // Close on Esc key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") changeLightboxImage(-1);
+        if (e.key === "ArrowRight") changeLightboxImage(1);
+      });
+    </script>
+  </body>
+</html>

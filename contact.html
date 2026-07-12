@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      try {
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-tertiary-fixed": "#1b1c19",
+                "inverse-surface": "#303030",
+                "on-tertiary-container": "#3c3d39",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "outline-variant": "#dbc1ba",
+                "surface-variant": "#e4e2e2",
+                "on-tertiary-fixed-variant": "#474744",
+                "surface-container-lowest": "#ffffff",
+                tertiary: "#5e5e5b",
+                "on-secondary-container": "#636262",
+                error: "#ba1a1a",
+                "surface-tint": "#984630",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-highest": "#e4e2e2",
+                "surface-container-high": "#eae8e7",
+                "tertiary-fixed": "#e4e2dd",
+                "surface-bright": "#fbf9f8",
+                primary: "#984630",
+                "on-primary-fixed": "#3c0800",
+                "surface-dim": "#dbd9d9",
+                "surface-container-low": "#f5f3f3",
+                "on-background": "#1b1c1c",
+                secondary: "#5f5e5e",
+                "primary-container": "#f28c71",
+                "tertiary-container": "#a8a7a3",
+                "tertiary-fixed-dim": "#c8c6c2",
+                "on-surface-variant": "#55433e",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-primary-fixed-variant": "#7a2f1b",
+                "surface-container": "#efeded",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                background: "#fbf9f8",
+                "inverse-on-surface": "#f2f0f0",
+                outline: "#88726d",
+                "on-surface": "#1b1c1c",
+                "inverse-primary": "#ffb4a1",
+                "secondary-fixed": "#e5e2e1",
+                "on-error-container": "#93000a",
+                surface: "#fbf9f8",
+                "primary-fixed": "#ffdbd1",
+                "on-primary-container": "#6d2512",
+                "secondary-container": "#e2dfde",
+                "primary-fixed-dim": "#ffb4a1",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#474746",
+              },
+              borderRadius: {
+                DEFAULT: "0.25rem",
+                lg: "0.5rem",
+                xl: "0.75rem",
+                full: "9999px",
+              },
+              spacing: {
+                sm: "12px",
+                "margin-mobile": "16px",
+                xl: "80px",
+                base: "8px",
+                "margin-desktop": "64px",
+                md: "24px",
+                xs: "4px",
+                lg: "48px",
+                gutter: "24px",
+              },
+              fontFamily: {
+                "label-md": ["Inter"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-sm": ["Inter"],
+              },
+              fontSize: {
+                "label-md": [
+                  "14px",
+                  {
+                    lineHeight: "16px",
+                    letterSpacing: "0.05em",
+                    fontWeight: "600",
+                  },
+                ],
+                "headline-xl": [
+                  "48px",
+                  {
+                    lineHeight: "56px",
+                    letterSpacing: "-0.02em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                "headline-lg-mobile": [
+                  "28px",
+                  { lineHeight: "36px", fontWeight: "700" },
+                ],
+                "headline-lg": [
+                  "32px",
+                  {
+                    lineHeight: "40px",
+                    letterSpacing: "-0.01em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                "headline-md": [
+                  "24px",
+                  { lineHeight: "32px", fontWeight: "600" },
+                ],
+                "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              },
+            },
+          },
+        };
+      } catch (_e) {}
+    </script>
+    <meta charset="utf-8" />
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- TopNavBar -->
+    <header
+      class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 dark:bg-surface-dim/95 border-b border-outline-variant/30 dark:border-outline/30 shadow-sm"
+    >
+      <!-- Navigation -->
+      <nav
+        class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 border-b border-outline-variant/30 transition-all duration-300"
+      >
+        <div
+          class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              alt="Ashville School Logo"
+              class="h-10 w-auto"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC-iX_yK2jPPxT5nvwM7V5W26IvBUffKdIDnkKSv-m8vgMSin29WaMFr0naqgCZTXqBItBJLo3ugQtuOiNWyz59aYqLCA4xo44E9JmCxRd1vSBTGoWGfDPZ-Ny3xS4NOaXNEkRAMdDxn5cYULRMG-MsOjaHfrXTzHMDIWUVL88wbPndRqQafv1S7lFGL9cJY_5y0COJaHywJ_QSsIQqaHU1cl8MgVvgX7IohZoDuqRhsdmEe24edAAiK6cZtn8SA1Ud5go4OI4MIeN"
+            />
+            <span
+              class="font-headline font-bold text-primary text-xl hidden sm:block"
+              >Ashville School</span
+            >
+          </div>
+          <div class="hidden lg:flex items-center gap-8">
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/"
+              >Home</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/about.html"
+              >About</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/programs.html"
+              >Our Programs</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/gallery.html"
+              >Gallery</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/admissions.html"
+              >Admissions</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/contact.html"
+              >Contact</a
+            >
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:shadow-lg active:scale-95 transition-all"
+            >
+              Enroll Now
+            </button>
+            <button
+              class="lg:hidden p-2 text-primary"
+              onclick="toggleMobileMenu()"
+            >
+              <span class="material-symbols-outlined">menu</span>
+            </button>
+          </div>
+        </div>
+        <!-- Simple Mobile Menu (Hidden by default) -->
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-4 space-y-4"
+        >
+          <a class="block font-semibold" href="#" onclick="toggleMobileMenu()"
+            >Home</a
+          >
+          <a
+            class="block font-semibold"
+            href="#about"
+            onclick="toggleMobileMenu()"
+            >About</a
+          >
+          <a
+            class="block font-semibold"
+            href="#programs"
+            onclick="toggleMobileMenu()"
+            >Our Programs</a
+          >
+          <a
+            class="block font-semibold"
+            href="#gallery"
+            onclick="toggleMobileMenu()"
+            >Gallery</a
+          >
+          <a
+            class="block font-semibold"
+            href="#admissions"
+            onclick="toggleMobileMenu()"
+            >Admissions</a
+          >
+          <a
+            class="block font-semibold"
+            href="#contact"
+            onclick="toggleMobileMenu()"
+            >Contact</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="min-h-screen">
+      <!-- Hero Section -->
+      <section class="relative bg-surface-container-low py-xl overflow-hidden">
+        <div class="max-w-[1280px] mx-auto px-margin-desktop relative z-10">
+          <div class="max-w-2xl">
+            <span
+              class="inline-block bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md mb-md"
+              >Get in Touch</span
+            >
+            <h1 class="font-headline-xl text-headline-xl text-on-surface mb-md">
+              Connect With Our School Community
+            </h1>
+            <p class="font-body-lg text-body-lg text-secondary max-w-xl">
+              Have questions about our Montessori curriculum or admissions?
+              We're here to guide you and your child on this beautiful
+              educational journey.
+            </p>
+          </div>
+        </div>
+        <!-- Decorative Element -->
+        <div
+          class="absolute -right-20 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]"
+        ></div>
+      </section>
+      <!-- Main Content: Bento Layout -->
+      <section class="max-w-[1280px] mx-auto px-margin-desktop py-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+          <!-- Contact Form Card -->
+          <div
+            class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-outline-variant/20 bento-card"
+          >
+            <h2 class="font-headline-md text-headline-md mb-lg">
+              Send us a Message
+            </h2>
+            <form
+              class="grid grid-cols-1 md:grid-cols-2 gap-md"
+              onsubmit="
+                event.preventDefault();
+                alert('Message sent! We will contact you soon.');
+              "
+            >
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-md text-label-md text-on-surface-variant"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  placeholder="John Doe"
+                  class="bg-surface-container-low border-outline-variant/30 rounded-lg p-sm font-body-md form-input-focus"
+                  required=""
+                />
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-md text-label-md text-on-surface-variant"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  placeholder="john@example.com"
+                  class="bg-surface-container-low border-outline-variant/30 rounded-lg p-sm font-body-md form-input-focus"
+                  required=""
+                />
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-md text-label-md text-on-surface-variant"
+                  >Phone Number</label
+                >
+                <input
+                  type="tel"
+                  placeholder="024 000 0000"
+                  class="bg-surface-container-low border-outline-variant/30 rounded-lg p-sm font-body-md form-input-focus"
+                  required=""
+                />
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-md text-label-md text-on-surface-variant"
+                  >Child's Age</label
+                >
+                <select
+                  class="bg-surface-container-low border-outline-variant/30 rounded-lg p-sm font-body-md form-input-focus"
+                >
+                  <option>Creche (6mo - 2yrs)</option>
+                  <option>Preschool (2yrs - 5yrs)</option>
+                  <option>Primary (6yrs+)</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-xs md:col-span-2">
+                <label
+                  class="font-label-md text-label-md text-on-surface-variant"
+                  >Your Message</label
+                >
+                <textarea
+                  rows="4"
+                  placeholder="How can we help you?"
+                  class="bg-surface-container-low border-outline-variant/30 rounded-lg p-sm font-body-md form-input-focus"
+                  required=""
+                ></textarea>
+              </div>
+              <div class="md:col-span-2 pt-base">
+                <button
+                  type="submit"
+                  class="w-full md:w-auto bg-primary text-on-primary px-8 py-3 rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-sm"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >send</span
+                  >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- Info Stack -->
+          <div class="lg:col-span-5 grid grid-cols-1 gap-gutter">
+            <!-- Contact Details Card -->
+            <div
+              class="bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-outline-variant/20 bento-card"
+            >
+              <h3 class="font-headline-md text-headline-md mb-md">
+                Quick Contact
+              </h3>
+              <div class="space-y-md">
+                <div class="flex items-start gap-md">
+                  <div
+                    class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0"
+                  >
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >location_on</span
+                    >
+                  </div>
+                  <div>
+                    <p class="font-label-md text-label-md text-primary">
+                      Our Location
+                    </p>
+                    <p class="text-on-surface">
+                      No. 18 Okantey Street, Adenta, Accra, Ghana
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-md">
+                  <div
+                    class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0"
+                  >
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >call</span
+                    >
+                  </div>
+                  <div>
+                    <p class="font-label-md text-label-md text-primary">
+                      Phone Lines
+                    </p>
+                    <p class="text-on-surface">024 437 4343 / 020 319 7369</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-md">
+                  <div
+                    class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0"
+                  >
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >mail</span
+                    >
+                  </div>
+                  <div>
+                    <p class="font-label-md text-label-md text-primary">
+                      Email Address
+                    </p>
+                    <p class="text-on-surface">
+                      admissions@ashvilleschool.edu.gh
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- WhatsApp Widget -->
+              <a
+                href="https://wa.me/233244374343"
+                target="_blank"
+                class="mt-lg flex items-center justify-between bg-green-50 p-sm rounded-xl border border-green-200 hover:bg-green-100 transition-colors"
+              >
+                <div class="flex items-center gap-sm">
+                  <div
+                    class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 text-white fill-current"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-label-md text-label-md text-[#25D366]">
+                      Chat with Admissions
+                    </p>
+                    <p class="text-secondary text-sm">
+                      Response time: &lt; 30 mins
+                    </p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-[#25D366]"
+                  >chevron_right</span
+                >
+              </a>
+            </div>
+            <!-- Hours Card -->
+            <div
+              class="bg-on-tertiary-fixed text-on-tertiary rounded-xl p-lg shadow-sm bento-card"
+            >
+              <div class="flex items-center gap-sm mb-md">
+                <span
+                  class="material-symbols-outlined"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >schedule</span
+                >
+                <h3 class="font-headline-md text-headline-md">
+                  Operating Hours
+                </h3>
+              </div>
+              <ul class="space-y-base">
+                <li
+                  class="flex justify-between border-b border-on-tertiary-container/30 pb-base"
+                >
+                  <span class="font-label-md text-label-md opacity-80"
+                    >Monday - Friday</span
+                  >
+                  <span class="font-medium">7:00 AM - 5:00 PM</span>
+                </li>
+                <li
+                  class="flex justify-between border-b border-on-tertiary-container/30 pb-base"
+                >
+                  <span class="font-label-md text-label-md opacity-80"
+                    >Saturday</span
+                  >
+                  <span class="font-medium">9:00 AM - 2:00 PM</span>
+                </li>
+                <li class="flex justify-between pt-base">
+                  <span class="font-label-md text-label-md opacity-80"
+                    >Sunday</span
+                  >
+                  <span class="font-medium text-error-container">Closed</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Map Section -->
+      <section class="w-full h-[500px] bg-surface-container overflow-hidden">
+        <div
+          class="w-full h-full grayscale-[0.5] hover:grayscale-0 transition-all duration-700"
+        >
+          <!-- Using a high-quality placeholder image for map visual context + Data Location -->
+          <div class="w-full h-full relative">
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A detailed aerial satellite view and clean digital map overlay showing the Adenta area in Accra, Ghana. The map is professionally styled with soft neutral tones, highlighting major roads like Okantey Street and featuring a prominent custom pin for Ashville School Montessori. The lighting is bright and sunny, reflecting a high-end corporate school directory aesthetic."
+              data-location="Adenta, Accra"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaYPBkG6gJqx-DbMqRDE936QuOSq_kPfya_riLz4l-JIaW3CEOYpXPlcFMONFfX7FCR3WyRzcxNCfhchxXn-L4CuUlJ6U8W3LtUO8RCMkbfZKwyJzVSHiP5i85PlU124MqvOP5ofb6ApvLE9wHyKlHK-iRTFOaSePHs1iW9ksuQ_UaVswsjyLLnF_ZOh-3RBWmnasJPaR_eYynn-Ub4d-2mZ3kNVqlyoPPX_BNw7M8flPr21JlTQL3LCen421yY3bQb3BBOfPPkk6d"
+            />
+            <div
+              class="absolute inset-0 bg-primary/10 pointer-events-none"
+            ></div>
+            <!-- Map Floating Info -->
+            <div
+              class="absolute bottom-margin-desktop left-margin-desktop hidden md:block"
+            >
+              <div class="glass-panel p-md rounded-xl shadow-xl max-w-sm">
+                <h4
+                  class="font-headline-md text-headline-md text-on-surface mb-xs"
+                >
+                  Find us in Adenta
+                </h4>
+                <p class="text-secondary text-sm mb-md">
+                  Centrally located for families in Adenta, Madina, and
+                  surrounding areas.
+                </p>
+                <button
+                  class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md flex items-center gap-sm hover:opacity-90"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >directions</span
+                  >
+                  Get Directions
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full rounded-t-xl bg-surface-container-highest dark:bg-surface-container-lowest mt-xl"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-lg max-w-[1280px] mx-auto"
+      >
+        <div class="col-span-1">
+          <div
+            class="font-headline-md text-headline-md font-bold text-on-surface mb-md"
+          >
+            Ashville School
+          </div>
+          <p class="font-body-sm text-body-sm text-secondary">
+            Nurturing independence and fostering a lifelong love for learning
+            through the Montessori method in a vibrant Ghanaian environment.
+          </p>
+        </div>
+        <div class="col-span-1">
+          <h4 class="font-label-md text-label-md text-primary mb-md">
+            Quick Links
+          </h4>
+          <ul class="space-y-base">
+            <li>
+              <a
+                class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors"
+                href="#"
+                >About Ashville</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors"
+                href="#"
+                >Our Programs</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors"
+                href="#"
+                >Admissions Process</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-1">
+          <h4 class="font-label-md text-label-md text-primary mb-md">
+            Curriculum
+          </h4>
+          <ul class="space-y-base">
+            <li>
+              <a
+                class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors"
+                href="#"
+                >Coding &amp; Robotics</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors"
+                href="#"
+                >School Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors"
+                href="#"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-1">
+          <h4 class="font-label-md text-label-md text-primary mb-md">
+            Newsletter
+          </h4>
+          <p class="font-body-sm text-body-sm text-secondary mb-sm">
+            Stay updated with our school calendar and events.
+          </p>
+          <div class="flex gap-xs">
+            <input
+              class="bg-surface-container border-none rounded-lg p-sm flex-grow text-sm"
+              placeholder="Your email"
+              type="email"
+            />
+            <button
+              class="bg-on-surface text-surface px-sm rounded-lg hover:opacity-90"
+            >
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-[1280px] mx-auto px-margin-desktop py-md border-t border-outline-variant/30 text-center"
+      >
+        <p class="font-body-sm text-body-sm text-secondary opacity-70">
+          © 2024 Ashville School Montessori. All rights reserved. Nurturing With
+          Love.
+        </p>
+      </div>
+    </footer>
+    <!-- Mobile Navigation Shell (BottomNavBar) -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/95 backdrop-blur-md z-50 border-t border-outline-variant/30 flex justify-around items-center py-sm px-base"
+    >
+      <button
+        class="flex flex-col items-center gap-xs text-secondary-container"
+      >
+        <span class="material-symbols-outlined">home</span>
+        <span class="text-[10px] font-bold">Home</span>
+      </button>
+      <button
+        class="flex flex-col items-center gap-xs text-secondary-container"
+      >
+        <span class="material-symbols-outlined">school</span>
+        <span class="text-[10px] font-bold">Programs</span>
+      </button>
+      <button class="flex flex-col items-center gap-xs text-primary">
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >contact_support</span
+        >
+        <span class="text-[10px] font-bold">Contact</span>
+      </button>
+      <button
+        class="flex flex-col items-center gap-xs text-secondary-container"
+      >
+        <span class="material-symbols-outlined">menu</span>
+        <span class="text-[10px] font-bold">More</span>
+      </button>
+    </nav>
+    <script>
+      // Simple form interaction
+      const form = document.querySelector("form");
+      const inputs = form.querySelectorAll("input, select, textarea");
+
+      inputs.forEach((input) => {
+        input.addEventListener("focus", () => {
+          input.parentElement.classList.add("scale-[1.01]");
+        });
+        input.addEventListener("blur", () => {
+          input.parentElement.classList.remove("scale-[1.01]");
+        });
+      });
+    </script>
+  </body>
+</html>

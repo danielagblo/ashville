@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      try {
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-tertiary-fixed": "#1b1c19",
+                "inverse-surface": "#303030",
+                "on-tertiary-container": "#3c3d39",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "outline-variant": "#dbc1ba",
+                "surface-variant": "#e4e2e2",
+                "on-tertiary-fixed-variant": "#474744",
+                "surface-container-lowest": "#ffffff",
+                tertiary: "#5e5e5b",
+                "on-secondary-container": "#636262",
+                error: "#ba1a1a",
+                "surface-tint": "#984630",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-highest": "#e4e2e2",
+                "surface-container-high": "#eae8e7",
+                "tertiary-fixed": "#e4e2dd",
+                "surface-bright": "#fbf9f8",
+                primary: "#984630",
+                "on-primary-fixed": "#3c0800",
+                "surface-dim": "#dbd9d9",
+                "surface-container-low": "#f5f3f3",
+                "on-background": "#1b1c1c",
+                secondary: "#5f5e5e",
+                "primary-container": "#f28c71",
+                "tertiary-container": "#a8a7a3",
+                "tertiary-fixed-dim": "#c8c6c2",
+                "on-surface-variant": "#55433e",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-primary-fixed-variant": "#7a2f1b",
+                "surface-container": "#efeded",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                background: "#fbf9f8",
+                "inverse-on-surface": "#f2f0f0",
+                outline: "#88726d",
+                "on-surface": "#1b1c1c",
+                "inverse-primary": "#ffb4a1",
+                "secondary-fixed": "#e5e2e1",
+                "on-error-container": "#93000a",
+                surface: "#fbf9f8",
+                "primary-fixed": "#ffdbd1",
+                "on-primary-container": "#6d2512",
+                "secondary-container": "#e2dfde",
+                "primary-fixed-dim": "#ffb4a1",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#474746",
+              },
+              borderRadius: {
+                DEFAULT: "0.25rem",
+                lg: "0.5rem",
+                xl: "0.75rem",
+                full: "9999px",
+              },
+              spacing: {
+                sm: "12px",
+                "margin-mobile": "16px",
+                xl: "80px",
+                base: "8px",
+                "margin-desktop": "64px",
+                md: "24px",
+                xs: "4px",
+                lg: "48px",
+                gutter: "24px",
+              },
+              fontFamily: {
+                "label-md": ["Inter"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-sm": ["Inter"],
+              },
+              fontSize: {
+                "label-md": [
+                  "14px",
+                  {
+                    lineHeight: "16px",
+                    letterSpacing: "0.05em",
+                    fontWeight: "600",
+                  },
+                ],
+                "headline-xl": [
+                  "48px",
+                  {
+                    lineHeight: "56px",
+                    letterSpacing: "-0.02em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                "headline-lg-mobile": [
+                  "28px",
+                  { lineHeight: "36px", fontWeight: "700" },
+                ],
+                "headline-lg": [
+                  "32px",
+                  {
+                    lineHeight: "40px",
+                    letterSpacing: "-0.01em",
+                    fontWeight: "700",
+                  },
+                ],
+                "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                "headline-md": [
+                  "24px",
+                  { lineHeight: "32px", fontWeight: "600" },
+                ],
+                "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              },
+            },
+          },
+        };
+      } catch (_e) {}
+    </script>
+    <meta charset="utf-8" />
+  </head>
+  <body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+    <!-- TopNavBar -->
+    <header
+      class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 border-b border-outline-variant/30 shadow-sm"
+    >
+      <!-- Navigation -->
+      <nav
+        class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 border-b border-outline-variant/30 transition-all duration-300"
+      >
+        <div
+          class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              alt="Ashville School Logo"
+              class="h-10 w-auto"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC-iX_yK2jPPxT5nvwM7V5W26IvBUffKdIDnkKSv-m8vgMSin29WaMFr0naqgCZTXqBItBJLo3ugQtuOiNWyz59aYqLCA4xo44E9JmCxRd1vSBTGoWGfDPZ-Ny3xS4NOaXNEkRAMdDxn5cYULRMG-MsOjaHfrXTzHMDIWUVL88wbPndRqQafv1S7lFGL9cJY_5y0COJaHywJ_QSsIQqaHU1cl8MgVvgX7IohZoDuqRhsdmEe24edAAiK6cZtn8SA1Ud5go4OI4MIeN"
+            />
+            <span
+              class="font-headline font-bold text-primary text-xl hidden sm:block"
+              >Ashville School</span
+            >
+          </div>
+          <div class="hidden lg:flex items-center gap-8">
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/"
+              >Home</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/about.html"
+              >About</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/programs.html"
+              >Our Programs</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/gallery.html"
+              >Gallery</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/admissions.html"
+              >Admissions</a
+            >
+            <a
+              class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+              href="/contact.html"
+              >Contact</a
+            >
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:shadow-lg active:scale-95 transition-all"
+            >
+              Enroll Now
+            </button>
+            <button
+              class="lg:hidden p-2 text-primary"
+              onclick="toggleMobileMenu()"
+            >
+              <span class="material-symbols-outlined">menu</span>
+            </button>
+          </div>
+        </div>
+        <!-- Simple Mobile Menu (Hidden by default) -->
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-4 space-y-4"
+        >
+          <a class="block font-semibold" href="#" onclick="toggleMobileMenu()"
+            >Home</a
+          >
+          <a
+            class="block font-semibold"
+            href="#about"
+            onclick="toggleMobileMenu()"
+            >About</a
+          >
+          <a
+            class="block font-semibold"
+            href="#programs"
+            onclick="toggleMobileMenu()"
+            >Our Programs</a
+          >
+          <a
+            class="block font-semibold"
+            href="#gallery"
+            onclick="toggleMobileMenu()"
+            >Gallery</a
+          >
+          <a
+            class="block font-semibold"
+            href="#admissions"
+            onclick="toggleMobileMenu()"
+            >Admissions</a
+          >
+          <a
+            class="block font-semibold"
+            href="#contact"
+            onclick="toggleMobileMenu()"
+            >Contact</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative py-xl px-6 md:px-margin-desktop bg-surface-container-low overflow-hidden"
+      >
+        <div
+          class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center"
+        >
+          <div class="z-10">
+            <span
+              class="inline-block px-3 py-1 rounded-full bg-primary-container/20 text-primary font-label-md text-label-md mb-4 uppercase tracking-wider"
+              >Join Our Family</span
+            >
+            <h1 class="font-headline-xl text-headline-xl mb-6 text-on-surface">
+              Your Child's Montessori Journey Begins Here
+            </h1>
+            <p
+              class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl"
+            >
+              At Ashville School, we follow the child. Our admission process is
+              designed to ensure a mutual fit between our nurturing environment
+              and your family's educational goals.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button
+                class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md flex items-center gap-2 hover:shadow-lg transition-shadow"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="download"
+                  data-original-icon="download"
+                  >download</span
+                >
+                Download Prospectus
+              </button>
+              <button
+                class="border-2 border-primary text-primary px-8 py-4 rounded-xl font-label-md hover:bg-primary/5 transition-colors"
+              >
+                Book a Private Tour
+              </button>
+            </div>
+          </div>
+          <div
+            class="relative h-[400px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A warm, brightly lit Montessori classroom in Ghana, showcasing children engaged in self-directed learning with high-quality wooden educational materials. The lighting is soft and golden, highlighting a modern, clean educational environment with earth-toned accents of coral and white, reflecting professional academic excellence and communal trust."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB11suVxGHVrBHzEAffuGnD0kpHlQ5YShLdglZ5JOmk6q9LUjkTPqnW7223ym6K2OZlbdD_BQ0bkRY0WkfnaBD9_8bhevjdQ3THIbVXvZzinO2KANGkc9EdR2ZDeIo90CN7Q7nkmnMf5AAfd4I5zAJupX0BiBXA6wgfXScQNQZLuX5R5mJnvY3Lx-0hUis34wkn6SUJQFFDrLjK0BErq374LaI2tcuizlP08SbRmojyrKU8vIEj-gLPiVq-SyuFSHkiHKWLKbqqcSHN"
+            />
+          </div>
+        </div>
+        <!-- Decorative circle -->
+        <div
+          class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"
+        ></div>
+      </section>
+      <!-- Admission Steps -->
+      <section class="py-xl px-6 md:px-margin-desktop bg-white">
+        <div class="max-w-[1280px] mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">
+              Our Admissions Process
+            </h2>
+            <p
+              class="font-body-md text-body-md text-secondary max-w-2xl mx-auto"
+            >
+              Five simple steps to secure your child's place at Ashville School
+              Montessori.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="relative mb-6">
+                <div
+                  class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform duration-300 z-10 relative"
+                >
+                  <span
+                    class="material-symbols-outlined text-3xl"
+                    data-icon="chat_bubble"
+                    >chat_bubble</span
+                  >
+                </div>
+                <div
+                  class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm"
+                >
+                  1
+                </div>
+                <!-- Connector lines for desktop -->
+                <div
+                  class="hidden md:block absolute top-10 left-full w-full h-[2px] bg-outline-variant/30 -z-0"
+                ></div>
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-2">Inquire</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant px-2">
+                Fill out our online inquiry form or call our office to start the
+                conversation.
+              </p>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="relative mb-6">
+                <div
+                  class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform duration-300 z-10 relative"
+                >
+                  <span
+                    class="material-symbols-outlined text-3xl"
+                    data-icon="visibility"
+                    >visibility</span
+                  >
+                </div>
+                <div
+                  class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm"
+                >
+                  2
+                </div>
+                <div
+                  class="hidden md:block absolute top-10 left-full w-full h-[2px] bg-outline-variant/30 -z-0"
+                ></div>
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-2">Visit</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant px-2">
+                Schedule a school tour to experience our Montessori environment
+                in person.
+              </p>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="relative mb-6">
+                <div
+                  class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform duration-300 z-10 relative"
+                >
+                  <span
+                    class="material-symbols-outlined text-3xl"
+                    data-icon="description"
+                    >description</span
+                  >
+                </div>
+                <div
+                  class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm"
+                >
+                  3
+                </div>
+                <div
+                  class="hidden md:block absolute top-10 left-full w-full h-[2px] bg-outline-variant/30 -z-0"
+                ></div>
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-2">Submit</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant px-2">
+                Complete the application forms and provide required
+                documentation.
+              </p>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="relative mb-6">
+                <div
+                  class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform duration-300 z-10 relative"
+                >
+                  <span
+                    class="material-symbols-outlined text-3xl"
+                    data-icon="payments"
+                    >payments</span
+                  >
+                </div>
+                <div
+                  class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm"
+                >
+                  4
+                </div>
+                <div
+                  class="hidden md:block absolute top-10 left-full w-full h-[2px] bg-outline-variant/30 -z-0"
+                ></div>
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-2">Pay</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant px-2">
+                Settle the admission and tuition fees to secure your enrollment
+                spot.
+              </p>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="relative mb-6">
+                <div
+                  class="w-20 h-20 rounded-full bg-primary flex items-center justify-center text-on-primary mb-2 group-hover:scale-110 transition-transform duration-300 z-10 relative shadow-lg"
+                >
+                  <span
+                    class="material-symbols-outlined text-3xl"
+                    data-icon="school"
+                    >school</span
+                  >
+                </div>
+                <div
+                  class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-on-surface text-surface flex items-center justify-center font-bold text-sm"
+                >
+                  5
+                </div>
+              </div>
+              <h3 class="font-headline-md text-headline-md mb-2">Start</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant px-2">
+                Welcome to Ashville! Your child begins their journey of
+                discovery.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Requirements & Documentation (Bento Style) -->
+      <section class="py-xl px-6 md:px-margin-desktop bg-surface-bright">
+        <div class="max-w-[1280px] mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+            <div
+              class="lg:col-span-2 bg-white p-10 rounded-3xl shadow-sm border border-outline-variant/20"
+            >
+              <h3
+                class="font-headline-lg text-headline-lg mb-8 flex items-center gap-3 text-primary"
+              >
+                <span
+                  class="material-symbols-outlined text-4xl"
+                  data-icon="folder_shared"
+                  >folder_shared</span
+                >
+                Documentation Needed
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <ul class="space-y-4">
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="check_circle"
+                      >check_circle</span
+                    >
+                    <span class="font-body-md">Completed Enrollment Form</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="check_circle"
+                      >check_circle</span
+                    >
+                    <span class="font-body-md"
+                      >Child's Original Birth Certificate (to be sighted)</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="check_circle"
+                      >check_circle</span
+                    >
+                    <span class="font-body-md"
+                      >2 Recent Passport-sized Photographs</span
+                    >
+                  </li>
+                </ul>
+                <ul class="space-y-4">
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="check_circle"
+                      >check_circle</span
+                    >
+                    <span class="font-body-md"
+                      >Copy of Vaccination/Immunization Record</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="check_circle"
+                      >check_circle</span
+                    >
+                    <span class="font-body-md"
+                      >Previous School Reports (if applicable)</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="check_circle"
+                      >check_circle</span
+                    >
+                    <span class="font-body-md">Parent/Guardian ID (Copy)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="bg-primary text-on-primary p-10 rounded-3xl shadow-lg flex flex-col justify-between"
+            >
+              <div>
+                <h3 class="font-headline-lg text-headline-lg mb-6">
+                  Age Groups
+                </h3>
+                <div class="space-y-6">
+                  <div class="border-b border-on-primary/20 pb-4">
+                    <h4 class="font-headline-md text-headline-md mb-1">
+                      Creche
+                    </h4>
+                    <p class="font-body-sm opacity-90 text-surface">
+                      6 Months to 2 Years
+                    </p>
+                  </div>
+                  <div class="border-b border-on-primary/20 pb-4">
+                    <h4 class="font-headline-md text-headline-md mb-1">
+                      Nursery
+                    </h4>
+                    <p class="font-body-sm opacity-90 text-surface">
+                      2 Years to 4 Years
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-headline-md text-headline-md mb-1">
+                      Primary
+                    </h4>
+                    <p class="font-body-sm opacity-90 text-surface">
+                      5 Years and Above
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="mt-8 bg-surface text-primary w-full py-4 rounded-xl font-label-md hover:bg-surface-dim transition-colors"
+              >
+                Apply Online
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- FAQ Section -->
+      <section class="py-xl px-6 md:px-margin-desktop bg-white">
+        <div class="max-w-[1280px] mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="font-headline-lg text-headline-lg mb-4 text-on-surface">
+              Frequently Asked Questions
+            </h2>
+            <p class="font-body-md text-body-md text-secondary">
+              Everything you need to know about joining Ashville School.
+            </p>
+          </div>
+          <div class="max-w-3xl mx-auto space-y-4">
+            <!-- FAQ 1 -->
+            <div
+              class="border border-outline-variant/50 rounded-2xl overflow-hidden"
+            >
+              <button
+                class="w-full flex items-center justify-between p-6 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                onclick="toggleFaq(this)"
+              >
+                <span class="font-headline-md text-headline-md"
+                  >When is the best time to apply?</span
+                >
+                <span
+                  class="material-symbols-outlined transition-transform duration-300"
+                  data-icon="expand_more"
+                  >expand_more</span
+                >
+              </button>
+              <div
+                class="hidden p-6 font-body-md text-on-surface-variant border-t border-outline-variant/30"
+              >
+                We accept applications year-round, but most families apply in
+                January for our main September intake. Early application is
+                encouraged as seats in our Creche and Nursery programs fill up
+                quickly.
+              </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div
+              class="border border-outline-variant/50 rounded-2xl overflow-hidden"
+            >
+              <button
+                class="w-full flex items-center justify-between p-6 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                onclick="toggleFaq(this)"
+              >
+                <span class="font-headline-md text-headline-md"
+                  >Do you offer part-time enrollment?</span
+                >
+                <span
+                  class="material-symbols-outlined transition-transform duration-300"
+                  data-icon="expand_more"
+                  >expand_more</span
+                >
+              </button>
+              <div
+                class="hidden p-6 font-body-md text-on-surface-variant border-t border-outline-variant/30"
+              >
+                While we focus on full-day immersive Montessori education, we do
+                have flexible morning-only sessions for our youngest learners
+                (Creche level) to help them transition into school life.
+              </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div
+              class="border border-outline-variant/50 rounded-2xl overflow-hidden"
+            >
+              <button
+                class="w-full flex items-center justify-between p-6 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                onclick="toggleFaq(this)"
+              >
+                <span class="font-headline-md text-headline-md"
+                  >What are the school fees?</span
+                >
+                <span
+                  class="material-symbols-outlined transition-transform duration-300"
+                  data-icon="expand_more"
+                  >expand_more</span
+                >
+              </button>
+              <div
+                class="hidden p-6 font-body-md text-on-surface-variant border-t border-outline-variant/30"
+              >
+                Our fee structure varies by grade level. Please download our
+                latest Prospectus for a detailed breakdown of tuition,
+                admission, and facility fees.
+              </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div
+              class="border border-outline-variant/50 rounded-2xl overflow-hidden"
+            >
+              <button
+                class="w-full flex items-center justify-between p-6 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                onclick="toggleFaq(this)"
+              >
+                <span class="font-headline-md text-headline-md"
+                  >Is transportation available?</span
+                >
+                <span
+                  class="material-symbols-outlined transition-transform duration-300"
+                  data-icon="expand_more"
+                  >expand_more</span
+                >
+              </button>
+              <div
+                class="hidden p-6 font-body-md text-on-surface-variant border-t border-outline-variant/30"
+              >
+                Yes, Ashville School provides a safe and reliable bus service
+                covering major residential areas in the vicinity. Fees for
+                transport depend on the distance from the school.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Final CTA -->
+      <section class="py-xl px-6 md:px-margin-desktop">
+        <div
+          class="max-w-[1280px] mx-auto rounded-[40px] overflow-hidden relative group"
+        >
+          <div
+            class="absolute inset-0 bg-primary opacity-90 group-hover:opacity-95 transition-opacity"
+          ></div>
+          <div
+            class="absolute inset-0 bg-cover bg-center -z-10 transition-transform duration-1000 group-hover:scale-110"
+            data-alt="Close-up of a child's hand confidently placing a wooden Montessori puzzle piece, symbolic of a new beginning. High-contrast, warm color palette focusing on the tactile nature of Montessori learning with professional, clean studio-style lighting."
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAEu-eG6QgoEPGKP_Q4JK-NG3xb4T4Mu9AjMQiWjGOirTKi8REBNh7VKr5yG_HcxzA2vYLMUr7OgRbL6TS5tjrvexX0C88X1-m-3ExGuUggj-ibd01zHa_RYAXhV_z2o77bbts1VDnWya6z6Ikbi3eDxcp-NYCQahBvLdafUtMghMHhKDRcJm2l8UqW8rSckqSLAjSLu-ZW6hVKtfM1TbIGK-lsFRuq7OSz3LurWG4kOeScTP5ZbACQOC34jUdEmGoWW_CJODvUBCnF&quot;);
+            "
+          ></div>
+          <div class="relative z-10 p-12 md:p-20 text-center text-on-primary">
+            <h2 class="font-headline-xl text-headline-xl mb-6">
+              Ready to join the Ashville community?
+            </h2>
+            <p
+              class="font-body-lg text-body-lg mb-10 max-w-2xl mx-auto opacity-90"
+            >
+              Start your child's application today and give them the gift of a
+              lifelong love for learning.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+              <a
+                class="bg-surface text-primary px-10 py-5 rounded-2xl font-label-md text-lg hover:shadow-2xl transition-all active:scale-95"
+                href="#contact"
+                >Enroll Now</a
+              >
+              <a
+                class="bg-transparent border-2 border-on-primary px-10 py-5 rounded-2xl font-label-md text-lg hover:bg-on-primary hover:text-primary transition-all"
+                href="#"
+                >Download Prospectus</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full rounded-t-xl bg-surface-container-highest">
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-6 md:px-margin-desktop py-lg max-w-[1280px] mx-auto"
+      >
+        <div class="col-span-1 md:col-span-1">
+          <div
+            class="font-headline-md text-headline-md font-bold text-on-surface mb-4"
+          >
+            Ashville School
+          </div>
+          <p class="font-body-sm text-body-sm text-secondary mb-6">
+            Nurturing the independent spirit through authentic Montessori
+            education in the heart of Ghana.
+          </p>
+          <div class="flex gap-4">
+            <a class="text-primary hover:text-primary-container" href="#"
+              ><span class="material-symbols-outlined" data-icon="public"
+                >public</span
+              ></a
+            >
+            <a class="text-primary hover:text-primary-container" href="#"
+              ><span class="material-symbols-outlined" data-icon="share"
+                >share</span
+              ></a
+            >
+          </div>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-on-surface mb-6">
+            Quick Links
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >About Ashville</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Our Programs</a
+              >
+            </li>
+            <li>
+              <a class="text-primary underline font-body-sm" href="#"
+                >Admissions Process</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Coding &amp; Robotics</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-on-surface mb-6">
+            Support
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >School Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Contact Us</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-secondary font-body-sm hover:text-primary transition-colors"
+                href="#"
+                >Parent Portal</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-on-surface mb-6">
+            Get in Touch
+          </h4>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="location_on"
+                >location_on</span
+              >
+              <p class="font-body-sm text-secondary">
+                Ashaley Botwe, Accra, Ghana
+              </p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="call"
+                >call</span
+              >
+              <p class="font-body-sm text-secondary">
+                0244 374 343 / 050 123 4567
+              </p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="mail"
+                >mail</span
+              >
+              <p class="font-body-sm text-secondary">
+                admissions@ashvilleschool.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-outline-variant/30 py-8 px-6 text-center">
+        <p class="font-body-sm text-body-sm text-secondary">
+          © 2024 Ashville School Montessori. All rights reserved. Nurturing With
+          Love.
+        </p>
+      </div>
+    </footer>
+    <script>
+      function toggleFaq(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector(".material-symbols-outlined");
+
+        // Toggle content visibility
+        content.classList.toggle("hidden");
+
+        // Rotate icon
+        if (content.classList.contains("hidden")) {
+          icon.style.transform = "rotate(0deg)";
+        } else {
+          icon.style.transform = "rotate(180deg)";
+        }
+      }
+    </script>
+  </body>
+</html>

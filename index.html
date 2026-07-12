@@ -1,0 +1,856 @@
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      try {
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                primary: "#f28c71",
+                "on-primary": "#ffffff",
+                "primary-container": "#ffdbd1",
+                "on-primary-container": "#3c0800",
+                secondary: "#5f5e5e",
+                "on-secondary": "#ffffff",
+                tertiary: "#5e5e5b",
+                surface: "#fbf9f8",
+                "on-surface": "#1b1c1c",
+                "on-surface-variant": "#55433e",
+                outline: "#88726d",
+                "outline-variant": "#dbc1ba",
+                background: "#fbf9f8",
+                "surface-container-low": "#f5f3f3",
+                "surface-container": "#efeded",
+                "surface-container-high": "#eae8e7",
+                "surface-container-highest": "#e4e2e2",
+                "surface-container-lowest": "#ffffff",
+              },
+              borderRadius: {
+                DEFAULT: "0.5rem",
+                lg: "0.5rem",
+                xl: "1rem",
+                "2xl": "1.5rem",
+                full: "9999px",
+              },
+              spacing: {
+                md: "24px",
+                sm: "12px",
+                xl: "80px",
+                "margin-mobile": "16px",
+                "margin-desktop": "64px",
+                base: "8px",
+                xs: "4px",
+                gutter: "24px",
+                lg: "48px",
+              },
+              fontFamily: {
+                headline: ["Plus Jakarta Sans", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+              },
+            },
+          },
+        };
+      } catch (_e) {}
+    </script>
+  </head>
+  <body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+    <!-- Lightbox Component -->
+    <div id="lightbox" onclick="this.style.display = 'none'"></div>
+    <!-- Navigation -->
+    <nav
+      class="sticky top-0 w-full z-50 backdrop-blur-md bg-surface/95 border-b border-outline-variant/30 transition-all duration-300"
+    >
+      <div
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            alt="Ashville School Logo"
+            class="h-10 w-auto"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC-iX_yK2jPPxT5nvwM7V5W26IvBUffKdIDnkKSv-m8vgMSin29WaMFr0naqgCZTXqBItBJLo3ugQtuOiNWyz59aYqLCA4xo44E9JmCxRd1vSBTGoWGfDPZ-Ny3xS4NOaXNEkRAMdDxn5cYULRMG-MsOjaHfrXTzHMDIWUVL88wbPndRqQafv1S7lFGL9cJY_5y0COJaHywJ_QSsIQqaHU1cl8MgVvgX7IohZoDuqRhsdmEe24edAAiK6cZtn8SA1Ud5go4OI4MIeN"
+          />
+          <span
+            class="font-headline font-bold text-primary text-xl hidden sm:block"
+            >Ashville School</span
+          >
+        </div>
+        <div class="hidden lg:flex items-center gap-8">
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/about.html"
+            >About</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/programs.html"
+            >Our Programs</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/gallery.html"
+            >Gallery</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/admissions.html"
+            >Admissions</a
+          >
+          <a
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors"
+            href="/contact.html"
+            >Contact</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm hover:shadow-lg active:scale-95 transition-all"
+          >
+            Enroll Now
+          </button>
+          <button
+            class="lg:hidden p-2 text-primary"
+            onclick="toggleMobileMenu()"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+      <!-- Simple Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-4 space-y-4"
+      >
+        <a class="block font-semibold" href="#" onclick="toggleMobileMenu()"
+          >Home</a
+        >
+        <a
+          class="block font-semibold"
+          href="#about"
+          onclick="toggleMobileMenu()"
+          >About</a
+        >
+        <a
+          class="block font-semibold"
+          href="#programs"
+          onclick="toggleMobileMenu()"
+          >Our Programs</a
+        >
+        <a
+          class="block font-semibold"
+          href="#gallery"
+          onclick="toggleMobileMenu()"
+          >Gallery</a
+        >
+        <a
+          class="block font-semibold"
+          href="#admissions"
+          onclick="toggleMobileMenu()"
+          >Admissions</a
+        >
+        <a
+          class="block font-semibold"
+          href="#contact"
+          onclick="toggleMobileMenu()"
+          >Contact</a
+        >
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative min-h-[80vh] flex items-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div
+          class="w-full h-full bg-cover bg-center"
+          style="
+            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDeQBki0ldUgoKQ75Z7veETrpyjbxBFBtZBRafusfLLCL1YXyk7tNzjBjgvqHHxDmNZdYjRPue-RU5YLOhIKk-VqCqvhlU27RPLPt7QmyGUDsrTG7x--i1xuZAqn44e7RUPXxXGltzp06vTD-VbTwaTT1mEA2ffMPWgpxzXvUcwE48MB4YeJiiM57enUql802sJWzc0YVpzVrfphhXnc_NOK5tBzp8i347R8oJczdp8RfZDj1EsXidovOKSN17oxNWIMLtxerD96-XN&quot;);
+          "
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-surface via-surface/70 to-transparent"
+        ></div>
+      </div>
+      <div
+        class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto w-full py-xl"
+      >
+        <div class="max-w-2xl space-y-md">
+          <h1
+            class="font-headline text-4xl md:text-6xl text-on-surface leading-tight font-extrabold"
+          >
+            Nurturing With Love - <br />
+            <span class="text-primary">From 6 Months to Grade 3</span>
+          </h1>
+          <p class="text-lg md:text-xl text-on-surface-variant max-w-lg">
+            A warm, Montessori-based sanctuary in Adenta where every child is
+            celebrated and nurtured to reach their full potential.
+          </p>
+          <div
+            class="flex items-center gap-2 text-on-surface-variant font-medium"
+          >
+            <span class="material-symbols-outlined text-primary"
+              >location_on</span
+            >
+            Adenta, behind 4Syte TV
+          </div>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <button
+              class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold hover:shadow-xl transition-all"
+            >
+              Enroll Now
+            </button>
+            <button
+              class="bg-white border-2 border-primary text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary/5 transition-all"
+            >
+              Book a Visit
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- About Section -->
+    <section class="py-xl bg-white" id="about">
+      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+          <div class="space-y-6">
+            <h2
+              class="font-headline text-3xl md:text-4xl font-bold text-on-surface"
+            >
+              About Ashville
+            </h2>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              Ashville School is a Montessori-based school in Adenta offering
+              nurturing education from 6 months to Grade 3. Our environment is
+              designed to foster independence, creativity, and a lifelong love
+              for learning.
+            </p>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              We believe in a child-centered approach where educators guide
+              students through a journey of discovery, ensuring each
+              developmental milestone is met with care and expertise.
+            </p>
+          </div>
+          <div class="relative">
+            <img
+              class="rounded-2xl shadow-2xl w-full h-[400px] object-cover aspect-video lg:aspect-square"
+              alt="Montessori Classroom"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLuJppMH0ugrIwO9KS0GlsDl-8zA4-Es9W0MR6NCX0iRFUOo4M38nSoPds2uSBI2GsxOiNm6V8YL7CcodGaaPn-bo5biqFG6OG6kRdqqUtmbt9hpyMJKdAqmCjJWE6MFSiW4_9JmIuhlw43KLCbROrCsVwig0tJNgXsLB1XtN7we_-1D33T2W23PimE2dR9gCFEjP-a4aTxiLjGoXS48YxjsyY2FxS_GotPCamwl0nL9m1oo8aa--rjchhhT"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Coding & Robotics Section -->
+    <section class="py-xl bg-surface-container-low" id="robotics">
+      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+          <div class="order-2 lg:order-1">
+            <img
+              class="rounded-2xl shadow-xl w-full aspect-video lg:aspect-square object-cover shadow-2xl"
+              alt="Coding and Robotics"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLs14eRoWHZ3lsnjXPmbVI_GSXCPqw2WsT44OMvUbNwydbdro-JCkJpHUWOyPAgWexdHzTMRmdxy3ekHH5Or4INIw7fESqHsZ67kxAPXQZ446ytQ3uDeSzGNNL9WH4Z-Q0BjcXQ5teqIiXAALBIQYAJYhRqvOmHpHwwxrWiaiBGMnwFsgVfLKJyue4a3w5gTTXMoucC5iX_9VjzaUGQocHYtD_QZ656L4x2AeoHMpvQhi8Pm6WrioWLQ1hq9"
+            />
+          </div>
+          <div class="space-y-6 order-1 lg:order-2">
+            <h2
+              class="font-headline text-3xl md:text-4xl font-bold text-on-surface"
+            >
+              Coding &amp; Robotics - Learning for the Future
+            </h2>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="p-2 bg-primary/10 rounded-lg">
+                  <span class="material-symbols-outlined text-primary"
+                    >data_object</span
+                  >
+                </div>
+                <p class="text-lg text-on-surface-variant">
+                  We introduce young learners to coding and robotics concepts.
+                </p>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="p-2 bg-primary/10 rounded-lg">
+                  <span class="material-symbols-outlined text-primary"
+                    >psychology</span
+                  >
+                </div>
+                <p class="text-lg text-on-surface-variant">
+                  Building problem-solving skills through hands-on activities.
+                </p>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="p-2 bg-primary/10 rounded-lg">
+                  <span class="material-symbols-outlined text-primary"
+                    >auto_awesome</span
+                  >
+                </div>
+                <p class="text-lg text-on-surface-variant">
+                  Preparing children for a tech-driven future.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Our Programs -->
+    <section class="py-xl bg-surface" id="programs">
+      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="text-center mb-lg">
+          <h2
+            class="font-headline text-3xl md:text-4xl font-bold text-on-surface"
+          >
+            Our Programs
+          </h2>
+          <p class="text-on-surface-variant mt-2">
+            Nurturing environments tailored to every developmental stage.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+          <!-- Creche -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-xl transition-all group"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >child_care</span
+            >
+            <h3 class="font-headline text-xl font-bold mb-1">Creche</h3>
+            <p class="text-primary font-semibold text-sm mb-4">
+              6 Months - 1.5 Years
+            </p>
+            <p class="text-on-surface-variant text-sm">
+              A safe and loving space for our youngest learners to begin their
+              sensory journey.
+            </p>
+          </div>
+          <!-- Nursery -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-xl transition-all group"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >toys</span
+            >
+            <h3 class="font-headline text-xl font-bold mb-1">Nursery</h3>
+            <p class="text-primary font-semibold text-sm mb-4">1.5 - 3 Years</p>
+            <p class="text-on-surface-variant text-sm">
+              Focusing on language development and social skills through
+              exploratory play.
+            </p>
+          </div>
+          <!-- Kindergarten -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-xl transition-all group"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >school</span
+            >
+            <h3 class="font-headline text-xl font-bold mb-1">Kindergarten</h3>
+            <p class="text-primary font-semibold text-sm mb-4">3 - 5 Years</p>
+            <p class="text-on-surface-variant text-sm">
+              Preparing children for formal education with core Montessori
+              foundations.
+            </p>
+          </div>
+          <!-- Primary -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-xl transition-all group"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >menu_book</span
+            >
+            <h3 class="font-headline text-xl font-bold mb-1">Primary</h3>
+            <p class="text-primary font-semibold text-sm mb-4">Grade 1 - 3</p>
+            <p class="text-on-surface-variant text-sm">
+              A blend of academic excellence and independent research-based
+              learning.
+            </p>
+          </div>
+          <!-- Day Care -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-xl transition-all group"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >wb_sunny</span
+            >
+            <h3 class="font-headline text-xl font-bold mb-1">Day Care</h3>
+            <p class="text-primary font-semibold text-sm mb-4">6 Months +</p>
+            <p class="text-on-surface-variant text-sm">
+              Reliable and professional care for children in a healthy, engaging
+              environment.
+            </p>
+          </div>
+          <!-- After School -->
+          <div
+            class="bg-white p-8 rounded-2xl border border-outline-variant/30 hover:shadow-xl transition-all group"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >history_edu</span
+            >
+            <h3 class="font-headline text-xl font-bold mb-1">
+              After School Care
+            </h3>
+            <p class="text-primary font-semibold text-sm mb-4">School Age</p>
+            <p class="text-on-surface-variant text-sm">
+              Homework support and extra-curricular engagement until parents
+              arrive.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="py-xl bg-surface-container-high" id="gallery">
+      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+        <h2
+          class="font-headline text-3xl md:text-4xl font-bold text-center mb-lg"
+        >
+          Life at Ashville
+        </h2>
+        <div
+          class="masonry-grid columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4"
+        >
+          <!-- 1 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Ashville Campus"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLvqktwm_beXf7reWO4cErSEKgkG7a5U4WHlYG9kpg7_oC5CzjlDoH3Fs5ej0GuW-EXEQAZe79JYbx4YEqrq2fKaIp0Vjuq74RaMh99dag8Ji86Yel3N6Mdx_CqRE7oNR79rAFLJTPixNht8avsrW7kj3Gw91Y-GtPfyJdvtJEgUgEDrBJiO2QlUEdaXlf_NnbGcyH6hb8cEWpnD9qp3EZ9K_Tw8Fq4cVSrAqs5Lg0Fpoz5yX0g42_bzjVt7"
+            />
+          </div>
+          <!-- 2 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Child Learning"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLuJppMH0ugrIwO9KS0GlsDl-8zA4-Es9W0MR6NCX0iRFUOo4M38nSoPds2uSBI2GsxOiNm6V8YL7CcodGaaPn-bo5biqFG6OG6kRdqqUtmbt9hpyMJKdAqmCjJWE6MFSiW4_9JmIuhlw43KLCbROrCsVwig0tJNgXsLB1XtN7we_-1D33T2W23PimE2dR9gCFEjP-a4aTxiLjGoXS48YxjsyY2FxS_GotPCamwl0nL9m1oo8aa--rjchhhT"
+            />
+          </div>
+          <!-- 3 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Students playing"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBArIeJNkX6hcSRxrXgf9KPSIp6erTr-4g-1wH2-VbRHBbpusOycFZp83rQN0hl81RxssLoYHcSqfL2pvfjeHvad63ZuVOvrvcnbzhoSqcCg40awohdhlDhJRL3J_jKLmVt6l_jp4PHIM1VfdExiOl961slsMfahUL6GDgiZ4bLM9DpCmg4fdN-GI5vQzdjw1XPeC_DstweJgqvMfPUY8JPfVZmL6V7fcXubMc4F0F34fTgsPgMgoVwXaiN23DUuvlC9rGpNjtNyUMG"
+            />
+          </div>
+          <!-- 4 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Art project"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-3XLVYCVINVcxl8mp67Rsn98mvQ_uXadVmOHd-gRusrTolg8RukV05Jwx4CAO-_FY6j_GU33zIWJkDciY8i7Rc8Ok1uU3khQqqyn7N18vleJ4Bfd9rE1NNd7MunmY3q0mPKu4VqBuZY7HeuYKbqXp8NAkCWkEeT3VTrIZN1HjL30AJKcLBEFdgzxag1mL_EBKS4p54Ielp2uQ_L0VodayW4UATd3K5KbDiiPuW5T1RszPLLrLr8vBGTKWeRl0ScSLUq4I61J3vo-f"
+            />
+          </div>
+          <!-- 5 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Outdoor play"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0F4ibBJiZH6GX2iMWgKQ-fA0h7l7wfrIXWBbJcCnTGdaNJgkE62g0W7raJ54MWWQHz5l4GU7ZE6zNIJ95efxvj3rPE0_yfiFACDbzLJHvN0dS-nTGoAzYGjygRO1QfFuqnLGP-IletdlYJKz4ZBFvIuFwVh_9_Gc5_5OTf5jll89e7eigqFnigzucQfo7pJCMhrApTROSc6cLy6i7EEIE77hmUCPbMgabsFHgh8c150fV8CR_Ou6XepvG6Hbbczhplxluswa1fKKT"
+            />
+          </div>
+          <!-- 6 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Library"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJP1D-zMwNAHcFEkVJtd4He8EhsucWqaAoIqxnZJJOqLoEpotdItSFSYsir66bjC66u_iAYikzK9VIAHDla5LtH-0fy9_rY8CgUNsYW-EIVvCs1l_ICni9B_GgNg47dDgu3LTcY25-x6_mLhomV9gk0PlWEBXXCmlboRSIAyO0wrQFIdn_j1yq80LlMaVKIoZRyNZKlp8WYm_e4tJUlXdA1amgpQ2-C2nvn3dkIyZtebNPZyC1f6lelht3HBEaGk-IFLxnV4H3mRS3"
+            />
+          </div>
+          <!-- 7 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Classroom activity"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7UiEbWBjyX76IFRK8ms9vsUuNc019H1Qwv73iZWDeMF4t-F5Dx0-ym71jv-2bVIQk6DvWuOMK9rx9t2m6M2TuAiB4OC_PbDxOe4kokiTZKDuLyPllnqzJzM6u7xd4hJKvTNSQjPe7ipTwumgM6vv96NRcZSyslrmS3B3pzNf3z4q5ALsRu3TyNwKj5iGUDjE5pOC0IrrbWOJL_6bIc38DlpAm-7XiWmvARgGS7qIWD48pVcDJHA5cwT6Sl25tnPzZdOIf-6IGdlGY"
+            />
+          </div>
+          <!-- 8 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Smiles"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY4ANLdfh5Q7OdDJ-LCgq6uTPH7o-Q2G__D2gdRg6jnf33mX47O6sb0GFQSrW8siyn4-etFGRWj_snfSN4YRBULmje8ZBDCiFLREGAtdooyfqwsQijYPSo_J21lz2B7Ic3EwVMpjaec5zV5sSNOOpxhG4ISFMvyCnlZm0nAidGGLB0IRJ6xFXlOphBep4CESZfEx7v__0_tSMRXlrYE21xo4D7nS99SMRIfeTAZwIAhua8x6WoEk-yWfPkVvVmNqjZyYcha1-kGef-"
+            />
+          </div>
+          <!-- 9 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Teaching"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP3zUwT_l1rsjiQL9kA93JcUAXjC6FBqtb-JBXj3wjNLx6Ti3rP0T8OfMrRAig4pHvgVJuk6I2u7AlLQySKnZssCfX-hs1rECE6CQKARslAf3-scq9haBb0_pMdw4S2azQa9tuEcukEP8xI1WgsIAikKCl-2WjdWmsd00AbghrdHFe0P_4_aZPYlx9KARSIztD5T16V650lKIr6TktmlRjGCeKQWMY_6G-pP2RXU1OvnPFvCjZijUM0eTPo7qvbiBlND--QuvOF180"
+            />
+          </div>
+          <!-- 10 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Lunch time"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCloYwtoMhenEDKHxUegSV260B_k3Pfa-IRuzcP-gYrK8xhHoFL4EkuxUW87-qpcbSGmzJicZixDRjUGQXOHQEqeYg4M1I7Ghevmk9BGfB1_IcNZV0DhFy-9WlsyhQLW9H_mtU9RhDoaRbTIa9uLUYJ3bMe0Cty1QCosVarPoQmIifo0j1FAJO3lAsNaku7X91j4ZhiCEd1VtM4uVbZm-a776KWGDzx_4U17fpGtc5LAhJgeLfJv4c7KAkne9YiIEQlgK2sRmwkKOjx"
+            />
+          </div>
+          <!-- 11 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Blocks"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn8ZE7QpW7v_SpGJtSfMLLPQ6Vkn1mYxdkN3YExg7UOj_q0kD5pQd2f2RQW6K8VBQv2cU-pWMBRDC3E-f62yBmx4D8oN5XgKmLjp8fD3EgVs8q4UZVg9V8tpPehGmtUOQX28KRT9pd7dciws7qdk3AJPNRHSrHqSDrz6BsagZzIbUDkglGOkZEmDufsXQD6j4iOI9wz1LIu4kLwURvZYyUh_N6bbTQRG1yhsDZnoNwLnkyjjPBCFt5YSlC3aB9zWbf3YPUaMOVBXnC"
+            />
+          </div>
+          <!-- 12 -->
+          <div
+            class="masonry-item cursor-pointer overflow-hidden rounded-xl break-inside-avoid mb-4 shadow-lg hover:shadow-xl transition-all"
+            onclick="openLightbox(this.querySelector('img').src)"
+          >
+            <img
+              alt="Group hug"
+              class="w-full h-auto hover:scale-105 transition-transform duration-500 object-cover rounded-xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_GhFb7W2vuQqbxa4PJBBKpwCTfU9b3R4djEu7eORuIvB9LyiU8E438xfAdW3ALXAMP1oW7qI00gxkoSZ_Qss_2FHsde4GeBA3hNXU_7AvWXiu85uYORpZojJVRnTsTuYU8YttkglNgN2-t8dR62lJtCfBuV4GF5BceBeL-hiWTZTMQxDbmByQvSwa2kxvkM8MIMJrMoulQNQ4C-bZ5uAKS1UY3388ZOkArsMyCba9lRAw4AV_lp6txm5DIXefeN54qgU8w8RSldC"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Admissions -->
+    <section class="py-xl bg-white" id="admissions">
+      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+        <h2
+          class="font-headline text-3xl md:text-4xl font-bold text-center mb-lg"
+        >
+          Simple Admission Process
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl shadow-lg"
+            >
+              1
+            </div>
+            <h4 class="font-bold mb-2">Inquire</h4>
+            <p class="text-sm text-on-surface-variant">
+              Call or fill the form to express interest.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-white border-2 border-primary text-primary rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl shadow-lg"
+            >
+              2
+            </div>
+            <h4 class="font-bold mb-2">Visit</h4>
+            <p class="text-sm text-on-surface-variant">
+              Tour our campus and meet our educators.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-white border-2 border-primary text-primary rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl shadow-lg"
+            >
+              3
+            </div>
+            <h4 class="font-bold mb-2">Submit</h4>
+            <p class="text-sm text-on-surface-variant">
+              Provide medical history and ID records.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-white border-2 border-primary text-primary rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl shadow-lg"
+            >
+              4
+            </div>
+            <h4 class="font-bold mb-2">Pay</h4>
+            <p class="text-sm text-on-surface-variant">
+              Finalize enrollment fees and materials.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl shadow-lg"
+            >
+              5
+            </div>
+            <h4 class="font-bold mb-2">Start</h4>
+            <p class="text-sm text-on-surface-variant">
+              Welcome your child to the Ashville family!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact & Form -->
+    <section class="py-xl bg-surface-container-high" id="contact">
+      <div
+        class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-lg"
+      >
+        <div class="space-y-lg">
+          <h2 class="font-headline text-3xl md:text-4xl font-bold">
+            Get in Touch
+          </h2>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary"
+                >location_on</span
+              >
+              <div>
+                <h4 class="font-bold">Address</h4>
+                <p class="text-on-surface-variant">
+                  No. 18 Okantey Street, Housing Down, Adenta, Accra (behind
+                  4Syte TV)
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary">call</span>
+              <div>
+                <h4 class="font-bold">Phones</h4>
+                <p class="text-on-surface-variant">
+                  024 437 4343 / 020 319 7369
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary">mail</span>
+              <div>
+                <h4 class="font-bold">Email</h4>
+                <p class="text-on-surface-variant">
+                  ashvilleschool2022@gmail.com
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-2xl overflow-hidden h-64 border border-outline-variant/30"
+          >
+            <iframe
+              frameborder="0"
+              height="100%"
+              marginheight="0"
+              marginwidth="0"
+              scrolling="no"
+              src="https://maps.google.com/maps?q=Adenta%20Housing%20Down%20Accra&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+              width="100%"
+            ></iframe>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-xl">
+          <h3 class="font-headline text-2xl font-bold mb-6">
+            Enrollment Inquiry
+          </h3>
+          <form
+            class="space-y-4"
+            data-netlify="true"
+            method="POST"
+            name="contact"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                class="bg-surface-container-low border-none rounded-xl px-4 py-3 w-full"
+                placeholder="Parent's Name"
+                required=""
+                type="text"
+              />
+              <input
+                class="bg-surface-container-low border-none rounded-xl px-4 py-3 w-full"
+                placeholder="Phone Number"
+                required=""
+                type="tel"
+              />
+            </div>
+            <select
+              class="bg-surface-container-low border-none rounded-xl px-4 py-3 w-full text-on-surface-variant"
+            >
+              <option disabled="" selected="">Child's Age / Grade</option>
+              <option>Under 1 Year</option>
+              <option>1-2 Years</option>
+              <option>2-3 Years</option>
+              <option>Grade 1</option>
+              <option>Grade 2</option>
+              <option>Grade 3</option>
+            </select>
+            <textarea
+              class="bg-surface-container-low border-none rounded-xl px-4 py-3 w-full"
+              placeholder="Your Message"
+              rows="4"
+            ></textarea>
+            <button
+              class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold shadow-lg hover:shadow-primary/30 transition-all active:scale-95"
+              type="submit"
+            >
+              Submit Inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-surface-container-highest py-xl">
+      <div
+        class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg"
+      >
+        <div class="col-span-1 md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img
+              alt="Ashville Logo"
+              class="h-12"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC-iX_yK2jPPxT5nvwM7V5W26IvBUffKdIDnkKSv-m8vgMSin29WaMFr0naqgCZTXqBItBJLo3ugQtuOiNWyz59aYqLCA4xo44E9JmCxRd1vSBTGoWGfDPZ-Ny3xS4NOaXNEkRAMdDxn5cYULRMG-MsOjaHfrXTzHMDIWUVL88wbPndRqQafv1S7lFGL9cJY_5y0COJaHywJ_QSsIQqaHU1cl8MgVvgX7IohZoDuqRhsdmEe24edAAiK6cZtn8SA1Ud5go4OI4MIeN"
+            />
+            <h3 class="font-headline font-bold text-xl">
+              Ashville School Montessori
+            </h3>
+          </div>
+          <p class="text-on-surface-variant max-w-sm">
+            Nurturing with love. Providing a foundational academic and moral
+            platform for your child to thrive in a global world.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wider mb-4">
+            Quick Links
+          </h4>
+          <ul class="space-y-2 text-on-surface-variant">
+            <li class="">
+              <a class="hover:text-primary transition-colors" href="#">Home</a>
+            </li>
+            <li class="">
+              <a class="hover:text-primary transition-colors" href="#about"
+                >About Us</a
+              >
+            </li>
+            <li class="">
+              <a class="hover:text-primary transition-colors" href="#programs"
+                >Our Programs</a
+              >
+            </li>
+            <li class="">
+              <a class="hover:text-primary transition-colors" href="#gallery"
+                >Gallery</a
+              >
+            </li>
+            <li class="">
+              <a class="hover:text-primary transition-colors" href="#contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wider mb-4">
+            Operating Hours
+          </h4>
+          <ul class="space-y-2 text-on-surface-variant text-sm">
+            <li class="flex justify-between">
+              <span class="">Mon - Fri</span>
+              <span class="">7:00am - 5:30pm</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="">Sat</span> <span class="">By Appointment</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="">Sun</span> <span class="">Closed</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop mt-lg pt-8 border-t border-outline-variant/20 text-center text-sm text-on-surface-variant"
+      >
+        <p class="">
+          © 2024 Ashville School Montessori. All rights reserved. Nurturing With
+          Love.
+        </p>
+      </div>
+    </footer>
+    <!-- Floating WhatsApp -->
+    <a
+      class="fixed bottom-8 right-8 z-[100] w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all"
+      href="https://wa.me/233244374343"
+      target="_blank"
+    >
+      <svg
+        fill="currentColor"
+        height="32"
+        viewBox="0 0 24 24"
+        width="32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.031 6.172c-2.32 0-4.519.903-6.16 2.544-1.64 1.641-2.543 3.841-2.543 6.162 0 1.61.438 3.191 1.269 4.578l-1.348 4.921 5.039-1.322c1.336.727 2.836 1.111 4.364 1.111h.001c2.32 0 4.519-.903 6.16-2.544 1.641-1.64 2.543-3.841 2.543-6.162 0-4.805-3.908-8.711-8.711-8.711zm4.619 12.029c-.615.615-1.431.954-2.298.954h-.001c-.569 0-1.132-.144-1.631-.417l-.117-.064-3.036.796.81-2.955-.07-.111c-.308-.49-.472-1.059-.472-1.644 0-.867.339-1.683.954-2.298.615-.615 1.431-.954 2.298-.954.867 0 1.683.339 2.298.954.615.615.954 1.431.954 2.298 0 .867-.339 1.683-.954 2.298zm-1.898-3.085c-.104-.174-.383-.279-.801-.488s-.542-.262-.625-.427c-.083-.165-.015-.279.034-.383s.209-.234.313-.348c.104-.114.168-.217.217-.348.049-.131.025-.262-.012-.348-.037-.086-.334-.805-.458-1.103-.121-.29-.245-.25-.334-.255-.086-.004-.184-.004-.281-.004s-.255.036-.388.181-.511.498-.511 1.215.521 1.41.593 1.507c.072.097 1.025 1.564 2.483 2.193.347.15.618.239.829.306.348.111.666.095.917.058.28-.041.862-.352 1.083-.692.221-.34.221-.632.155-.692-.066-.06-.241-.164-.452-.269z"
+        ></path>
+      </svg>
+    </a>
+    <script>
+      function openLightbox(src) {
+        const lightbox = document.getElementById("lightbox");
+        const img = document.getElementById("lightbox-img");
+        img.src = src;
+        lightbox.style.display = "flex";
+      }
+
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Scroll effect for nav
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 20) {
+          nav.classList.add("shadow-md");
+        } else {
+          nav.classList.remove("shadow-md");
+        }
+      });
+    </script>
+  </body>
+</html>
