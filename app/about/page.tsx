@@ -37,7 +37,7 @@ export default function About() {
   return (
     <div className="pb-16">
       <div className="bg-primary text-white py-32 px-4 text-center relative overflow-hidden">
-        <SchoolDoodles className="text-white/40" />
+        <SchoolDoodles className="text-white/30" />
         <PageHero defaultSrc="/images/home_about.png" opacity={0.1} />
         <div className="relative z-10">
           <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight">About Ashville</h1>
@@ -49,7 +49,7 @@ export default function About() {
       </div>
 
       <section className="py-32 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -96,7 +96,7 @@ export default function About() {
       </section>
 
       <section className="py-32 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-20 items-center">
             <div className="order-2 md:order-1">
@@ -162,7 +162,7 @@ export default function About() {
       </section>
 
       <section className="py-32 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <span className="text-primary font-bold text-xs tracking-[0.3em] uppercase">Our Educators</span>

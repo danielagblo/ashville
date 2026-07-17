@@ -38,7 +38,7 @@ export default function Programs() {
   return (
     <div className="pb-16">
       <div className="bg-primary text-white py-32 px-4 text-center relative overflow-hidden">
-        <SchoolDoodles className="text-white/40" />
+        <SchoolDoodles className="text-white/30" />
         <div className="absolute inset-0">
           <PageHero defaultSrc="/images/home_about.png" opacity={0.15} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
@@ -51,7 +51,7 @@ export default function Programs() {
       </div>
 
       <section className="py-32 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Early Learning Stages</h2>
@@ -102,7 +102,7 @@ export default function Programs() {
       </section>
 
       <section className="py-32 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 bg-dark rounded-[2rem] overflow-hidden min-h-[450px]">
             <div className="lg:col-span-7 relative aspect-video overflow-hidden">
@@ -149,7 +149,7 @@ export default function Programs() {
       </section>
 
       <section className="py-32 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Additional Care</h2>
@@ -203,7 +203,7 @@ export default function Programs() {
       </section>
 
       <section className="py-20 bg-primary relative overflow-hidden text-center">
-        <SchoolDoodles className="text-white/40" />
+        <SchoolDoodles className="text-white/30" />
         <div className="relative z-10 max-w-3xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Ready to Join the Ashville Family?</h2>
           <p className="text-xl text-white/80 mb-10">Book a tour of our campus today and see how our programs create a foundation for lifelong learning.</p>

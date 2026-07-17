@@ -34,7 +34,7 @@ export default function Admissions() {
   return (
     <div className="pb-0">
       <section className="relative h-[70vh] min-h-[600px] flex items-center overflow-hidden bg-primary">
-        <SchoolDoodles className="text-white/40" />
+        <SchoolDoodles className="text-white/30" />
         <div className="absolute inset-0">
           <PageHero defaultSrc="/images/4.png" opacity={0.3} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
@@ -62,7 +62,7 @@ export default function Admissions() {
       </section>
 
       <section className="py-32 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Simple Steps</h2>
@@ -96,7 +96,7 @@ export default function Admissions() {
       </section>
 
       <section className="py-32 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 bg-white p-10 rounded-3xl shadow-sm border border-slate-100">
@@ -151,7 +151,7 @@ export default function Admissions() {
       </section>
 
       <section id="enroll-form" className="py-32 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Start Here</h2>
@@ -163,7 +163,7 @@ export default function Admissions() {
       </section>
 
       <section className="py-32 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">FAQ</h2>
@@ -203,7 +203,7 @@ export default function Admissions() {
       </section>
 
       <section className="py-20 bg-primary relative overflow-hidden text-center">
-        <SchoolDoodles className="text-white/40" />
+        <SchoolDoodles className="text-white/30" />
         <div className="relative z-10 max-w-3xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Ready to join the Ashville community?</h2>
           <p className="text-xl text-white/80 mb-10">Start your child&apos;s application today and give them the gift of a lifelong love for learning.</p>
