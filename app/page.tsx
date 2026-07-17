@@ -437,9 +437,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
-              <EnrollmentForm />
-            </div>
+            <EnrollmentForm />
           </div>
         </div>
       </section>
