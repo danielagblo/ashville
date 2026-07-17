@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <div className="pb-0">
       <section className="bg-primary text-white py-32 px-4 text-center relative overflow-hidden">
-        <SchoolDoodles />
+        <SchoolDoodles className="text-white/40" />
         <PageHero defaultSrc="/images/1.png" opacity={0.1} />
         <div className="relative z-10">
           <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight">Contact Us</h1>
@@ -22,7 +22,7 @@ export default function Contact() {
       </section>
 
       <section className="py-32 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-8">
             <div className="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">

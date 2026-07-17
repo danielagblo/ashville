@@ -38,7 +38,7 @@ export default function Programs() {
   return (
     <div className="pb-16">
       <div className="bg-primary text-white py-32 px-4 text-center relative overflow-hidden">
-        <SchoolDoodles />
+        <SchoolDoodles className="text-white/40" />
         <div className="absolute inset-0">
           <PageHero defaultSrc="/images/home_about.png" opacity={0.15} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent"></div>
@@ -51,7 +51,7 @@ export default function Programs() {
       </div>
 
       <section className="py-32 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Early Learning Stages</h2>
@@ -102,12 +102,12 @@ export default function Programs() {
       </section>
 
       <section className="py-32 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 bg-dark rounded-[2rem] overflow-hidden min-h-[450px]">
-            <div className="lg:col-span-7 relative h-64 lg:h-auto overflow-hidden">
+            <div className="lg:col-span-7 relative aspect-video overflow-hidden">
               <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqjWE5natTycCXnDjN2NM5xdVRtD3YpnBlFr9DXfCIzTsPrY8i-glYn0rLufTPpFio6VasWCIGswmAV-Xp123Vck_9dOWn3oIZGsgtC-iPJtyqIx6WK1RHbVuSfeD2GRIxtPmyklH08JpXRx3cLrlvc3k3CsFlK2FuoRvo2DFIPKRn0uAnk7gfi4yg8-p-ArKiNa1JZvkPLZSBq5PBRpZ6IoqG9GeVdDV4t8GXj5mNZ8ReS8vepfAcwBO_8cVBM4GqUbL8-39q4N2W"
+                src="/images/robochildren.jpg"
                 alt="Coding and Robotics"
                 fill
                 sizes="(max-width: 1024px) 100vw, 58vw"
@@ -149,7 +149,7 @@ export default function Programs() {
       </section>
 
       <section className="py-32 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Additional Care</h2>
@@ -203,7 +203,7 @@ export default function Programs() {
       </section>
 
       <section className="py-20 bg-primary relative overflow-hidden text-center">
-        <SchoolDoodles className="text-white/10" />
+        <SchoolDoodles className="text-white/40" />
         <div className="relative z-10 max-w-3xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Ready to Join the Ashville Family?</h2>
           <p className="text-xl text-white/80 mb-10">Book a tour of our campus today and see how our programs create a foundation for lifelong learning.</p>
