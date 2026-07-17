@@ -461,7 +461,7 @@ export default function AdminPortal() {
                   return (
                     <div key={section.id} className={`bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden flex flex-col group ${isMultiple ? 'md:col-span-2 lg:col-span-3' : ''}`}>
                       <div className={`relative ${isMultiple ? 'h-64' : 'h-48'} bg-slate-900 overflow-hidden`}>
-                        <Image src={currentSrc} alt={section.label} fill className="object-cover opacity-60 transition-all duration-500" />
+                        <Image src={currentSrc} alt={section.label} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover opacity-60 transition-all duration-500" />
                         
                         {isMultiple && images.length > 1 && (
                           <>
@@ -499,7 +499,7 @@ export default function AdminPortal() {
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                               {overrideImages.map((img, idx) => (
                                 <div key={idx} className="relative aspect-video rounded-xl overflow-hidden group/img ring-1 ring-slate-100">
-                                  <Image src={img} alt={`Slide ${idx + 1}`} fill className="object-cover" />
+                                  <Image src={img} alt={`Slide ${idx + 1}`} fill sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 16vw" className="object-cover" />
                                   <button 
                                     onClick={() => handleRemoveImage(section.id, img)}
                                     className="absolute inset-0 bg-red-500/80 text-white opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center"
