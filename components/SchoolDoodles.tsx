@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Rocket, Heart, Star, Music, Pencil, Smile, Paperclip, BookOpen, Palette, Sun, GraduationCap, Puzzle, Flower2, Apple } from "lucide-react";
 
-export default function SchoolDoodles({ className = "text-primary/30" }: { className?: string }) {
+export default function SchoolDoodles({ className = "text-primary/20" }: { className?: string }) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
       <motion.div animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-10 left-[10%] scale-50 md:scale-100 origin-top-left">
