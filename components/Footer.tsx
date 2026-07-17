@@ -262,6 +262,7 @@ export default function Footer() {
 
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest font-bold text-white/40">
             <p>&copy; {new Date().getFullYear()} Ashville School Montessori. All rights reserved. Nurturing With Love.</p>
+            <p>Designed by <a href="https://skytechghana.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80 transition-colors">SkyTech Ghana</a></p>
           </div>
         </div>
       </footer>
@@ -270,7 +271,7 @@ export default function Footer() {
         href="https://wa.me/233244374343"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all z-50 flex items-center justify-center group"
+        className="fixed bottom-24 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all z-50 flex items-center justify-center group"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle size={32} />
