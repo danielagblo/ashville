@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import SchoolDoodles from "@/components/SchoolDoodles";
+import EnrollmentForm from "@/components/EnrollmentForm";
 
 const slides = [
   {
@@ -218,7 +219,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
@@ -289,12 +290,12 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 relative h-[400px] rounded-[3rem] overflow-hidden shadow-2xl image-shine">
+            <div className="order-2 lg:order-1 relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl image-shine">
               <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqjWE5natTycCXnDjN2NM5xdVRtD3YpnBlFr9DXfCIzTsPrY8i-glYn0rLufTPpFio6VasWCIGswmAV-Xp123Vck_9dOWn3oIZGsgtC-iPJtyqIx6WK1RHbVuSfeD2GRIxtPmyklH08JpXRx3cLrlvc3k3CsFlK2FuoRvo2DFIPKRn0uAnk7gfi4yg8-p-ArKiNa1JZvkPLZSBq5PBRpZ6IoqG9GeVdDV4t8GXj5mNZ8ReS8vepfAcwBO_8cVBM4GqUbL8-39q4N2W"
+                src="/images/robochildren.jpg"
                 alt="Coding and Robotics"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -323,7 +324,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Our Programs</h2>
@@ -353,7 +354,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-slate-50 relative overflow-hidden" id="gallery-section">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-dark">Life at Ashville</h2>
           <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
@@ -375,7 +376,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Admissions</h2>
@@ -402,7 +403,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/5" />
+        <SchoolDoodles className="text-primary/25" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
@@ -437,33 +438,14 @@ export default function Home() {
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
-              <h3 className="text-2xl font-heading font-bold text-dark mb-6">Enrollment Inquiry</h3>
-              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Thank you! We'll contact you soon."); }}>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <input type="text" placeholder="Parent's Name" required className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 w-full focus:ring-2 focus:ring-primary outline-none" />
-                  <input type="tel" placeholder="Phone Number" required className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 w-full focus:ring-2 focus:ring-primary outline-none" />
-                </div>
-                <select defaultValue="" className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 w-full text-dark/60 focus:ring-2 focus:ring-primary outline-none">
-                  <option disabled value="">Child&apos;s Age / Grade</option>
-                  <option>Under 1 Year</option>
-                  <option>1-2 Years</option>
-                  <option>2-3 Years</option>
-                  <option>Grade 1</option>
-                  <option>Grade 2</option>
-                  <option>Grade 3</option>
-                </select>
-                <textarea placeholder="Your Message" rows={4} className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 w-full focus:ring-2 focus:ring-primary outline-none"></textarea>
-                <button type="submit" className="w-full bg-primary text-white py-4 rounded-xl font-bold shadow-lg hover:bg-primary/90 transition-all active:scale-95 flex items-center justify-center gap-2">
-                  <Send size={18} /> Submit Inquiry
-                </button>
-              </form>
+              <EnrollmentForm />
             </div>
           </div>
         </div>
       </section>
 
       <section className="py-20 bg-primary relative overflow-hidden">
-        <SchoolDoodles />
+        <SchoolDoodles className="text-white/40" />
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
             <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-6 tracking-tight">
