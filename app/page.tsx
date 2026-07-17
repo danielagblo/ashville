@@ -219,7 +219,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
@@ -290,7 +290,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl image-shine">
@@ -324,7 +324,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Our Programs</h2>
@@ -354,7 +354,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-slate-50 relative overflow-hidden" id="gallery-section">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-dark">Life at Ashville</h2>
           <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
@@ -376,7 +376,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-white relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-4">Admissions</h2>
@@ -403,7 +403,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 bg-slate-50 relative overflow-hidden">
-        <SchoolDoodles className="text-primary/25" />
+        <SchoolDoodles className="text-primary/20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
@@ -443,7 +443,7 @@ export default function Home() {
       </section>
 
       <section className="py-20 bg-primary relative overflow-hidden">
-        <SchoolDoodles className="text-white/40" />
+        <SchoolDoodles className="text-white/30" />
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
             <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-6 tracking-tight">
