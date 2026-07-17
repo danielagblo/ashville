@@ -3,10 +3,50 @@
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronRight, Loader2 } from "lucide-react";
 import SchoolDoodles from "@/components/SchoolDoodles";
+import { useState, FormEvent } from "react";
 
 export default function Contact() {
+  const [sending, setSending] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSending(true);
+    setFeedback(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          childAge: formData.get("childAge"),
+          message: formData.get("message"),
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setFeedback({ type: "success", text: "Message sent! We will contact you soon." });
+        form.reset();
+      } else {
+        setFeedback({ type: "error", text: data.error || "Failed to send message. Please try again." });
+      }
+    } catch {
+      setFeedback({ type: "error", text: "Network error. Please check your connection and try again." });
+    } finally {
+      setSending(false);
+    }
+  }
+
   return (
     <div className="pb-0">
       <section className="bg-primary text-white py-32 px-4 text-center relative overflow-hidden">
@@ -27,22 +67,22 @@ export default function Contact() {
           <div className="grid lg:grid-cols-12 gap-8">
             <div className="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm">
               <h2 className="text-2xl font-heading font-bold text-dark mb-8">Send us a Message</h2>
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={(e) => { e.preventDefault(); alert("Message sent! We will contact you soon."); }}>
+              <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="text-sm font-semibold text-dark/70 mb-1 block">Full Name</label>
-                  <input type="text" placeholder="Your Name" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" />
+                  <input type="text" name="name" placeholder="Your Name" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" />
                 </div>
                 <div>
                   <label className="text-sm font-semibold text-dark/70 mb-1 block">Email Address</label>
-                  <input type="email" placeholder="your@email.com" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" />
+                  <input type="email" name="email" placeholder="your@email.com" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" />
                 </div>
                 <div>
                   <label className="text-sm font-semibold text-dark/70 mb-1 block">Phone Number</label>
-                  <input type="tel" placeholder="024 000 0000" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" />
+                  <input type="tel" name="phone" placeholder="024 000 0000" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" />
                 </div>
                 <div>
                   <label className="text-sm font-semibold text-dark/70 mb-1 block">Child&apos;s Age</label>
-                  <select className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all text-dark/60">
+                  <select name="childAge" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all text-dark/60">
                     <option>Creche (6mo - 2yrs)</option>
                     <option>Preschool (2yrs - 5yrs)</option>
                     <option>Primary (6yrs+)</option>
@@ -50,11 +90,21 @@ export default function Contact() {
                 </div>
                 <div className="md:col-span-2">
                   <label className="text-sm font-semibold text-dark/70 mb-1 block">Your Message</label>
-                  <textarea rows={4} placeholder="How can we help you?" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all"></textarea>
+                  <textarea name="message" rows={4} placeholder="How can we help you?" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all"></textarea>
                 </div>
                 <div className="md:col-span-2">
-                  <button type="submit" className="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 shadow-lg">
-                    <Send size={18} /> Send Message
+                  {feedback && (
+                    <div className={`p-4 rounded-xl mb-4 text-sm font-medium ${
+                      feedback.type === "success"
+                        ? "bg-green-50 text-green-700 border border-green-200"
+                        : "bg-red-50 text-red-700 border border-red-200"
+                    }`}>
+                      {feedback.text}
+                    </div>
+                  )}
+                  <button type="submit" disabled={sending} className="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed w-full">
+                    {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
+                    {sending ? "Sending..." : "Send Message"}
                   </button>
                 </div>
               </form>
